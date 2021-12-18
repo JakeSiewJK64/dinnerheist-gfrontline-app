@@ -1,0 +1,26 @@
+{
+  "name": "react-express-starter-pack",
+  "version": "1.0.0",
+  "description": "boiler plate for react express",
+  "main": "server.js",
+  "scripts": {
+    "start": "concurrently \"npm i && node server.js\"",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "author": "JakeSiewJK64",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "concurrently": "^6.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.1",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "nodemon": "^2.0.15"
+  }
+}
