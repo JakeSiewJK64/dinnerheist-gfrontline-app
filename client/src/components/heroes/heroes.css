@@ -1,0 +1,10 @@
+.hero-profile {
+    height: 10rem;
+    width: 10rem;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 10rem;
+    height: auto;
+}

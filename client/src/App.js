@@ -11,7 +11,7 @@ import Users from "./components/users/users";
 import Login from "./components/security/login/login";
 import UserProfile from "./components/users/userProfile";
 import UserSettings from "./components/settings/settings";
-
+import Heroes from "./components/heroes/heroes";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -173,6 +173,7 @@ function App() {
               )
             }
           />
+          <Route exact path="/heroes" render={(props) => <Heroes />} />
           <Route
             exact
             path="*"
