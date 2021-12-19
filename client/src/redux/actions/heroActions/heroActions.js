@@ -11,3 +11,10 @@ export const OpenHeroDetailsDialog = (item) => {
     openHeroDialog: item,
   };
 };
+
+export const SetHeroDialogID = (id) => {
+  return {
+    type: "HERO_DIALOG_ID",
+    heroID: id,
+  };
+};

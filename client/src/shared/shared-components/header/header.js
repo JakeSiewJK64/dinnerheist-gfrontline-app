@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import gfTitle from "../../../img/gfTitle.png";
 import "./header.css";
 import HeaderMenu from "./headerMenu";
-import { useSelector } from "react-redux";
 
 export const AppHeader = ({ username, userrole, setAuth }) => {
   return (
