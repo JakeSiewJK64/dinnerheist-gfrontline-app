@@ -7,21 +7,24 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
+  TextField,
+  DialogContentText,
 } from "@mui/material";
 import LoadingSpinner from "../../../shared/shared-components/loadingSpinner/loadingSpinner";
 import { OpenHeroDetailsDialog } from "../../../redux/actions/heroActions/heroActions";
 
 const HeroDetailsDialog = () => {
   let dispatch = useDispatch();
-  const [hero, setHero] = useState({});
-  const openHeroDialog = useSelector((state) => state.heroDialog);
-  const id = useSelector((state) => state.heroDialogId);
+  const [hero, setHero] = useState(null);
+  var openHeroDialog = useSelector((state) => state.heroDialog);
+  var id = useSelector((state) => state.heroDialogId);
 
   const handleClose = () => {
     dispatch(OpenHeroDetailsDialog(false));
   };
 
   useEffect(() => {
+    dispatch(OpenHeroDetailsDialog(false));
     if (id) {
       GetHero();
     }
@@ -29,7 +32,6 @@ const HeroDetailsDialog = () => {
 
   const GetHero = async () => {
     try {
-      
       const response = await fetch("/heroes/getHeroById/" + id, {
         method: "GET",
       });
@@ -40,25 +42,73 @@ const HeroDetailsDialog = () => {
     }
   };
 
-  if (hero) {
-    return (
-      <Dialog open={openHeroDialog}>
-        <DialogTitle>H1</DialogTitle>
-        <DialogContent>
-          <Flex>
-            <Flex>
-              <p>{hero.hero_name}</p>
+  return hero === undefined || hero === null ? (
+    <div></div>
+  ) : (
+    <Dialog open={openHeroDialog}>
+      <DialogTitle>{hero.hero_name}</DialogTitle>
+      <DialogContent>
+        <DialogContentText></DialogContentText>
+        <Flex row gap={20} className="m-100">
+          <img src={hero.image_url} alt="" />
+          <Flex column>
+            <TextField
+              autoFocus
+              margin="dense"
+              label="Gun Name"
+              type="text"
+              fullWidth
+              value={hero.hero_name}
+              variant="outlined"
+            />
+            <Flex row gap={10} className="w-100">
+              <TextField
+                autoFocus
+                margin="dense"
+                label="Armor"
+                type="text"
+                fullWidth
+                variant="outlined"
+                value={hero.armor}
+              />
+              <TextField
+                autoFocus
+                margin="dense"
+                label="Armor"
+                type="text"
+                fullWidth
+                variant="outlined"
+                value={hero.hero_damage}
+              />
+            </Flex>
+            <Flex row gap={10} className="w-100">
+              <TextField
+                autoFocus
+                margin="dense"
+                label="Critical Damage"
+                type="text"
+                fullWidth
+                variant="outlined"
+                value={hero.crit_damage}
+              />
+              <TextField
+                autoFocus
+                margin="dense"
+                label="Critical Rate"
+                type="text"
+                fullWidth
+                variant="outlined"
+                value={hero.crit_rate}
+              />
             </Flex>
           </Flex>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Close</Button>
-        </DialogActions>
-      </Dialog>
-    );
-  } else {
-    return <LoadingSpinner />;
-  }
+        </Flex>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleClose}>Close</Button>
+      </DialogActions>
+    </Dialog>
+  );
 };
 
 export default HeroDetailsDialog;
