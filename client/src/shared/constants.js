@@ -4,4 +4,8 @@ export const header_routes = [
     route: "/users",
     role: 'administrator'
   },
+  {
+    title: "Guns",
+    route: "/heroes",
+  },
 ];
