@@ -78,11 +78,7 @@ function App() {
     <Fragment>
       <header>
         <ToastContainer />
-        {isAuthenticated ? (
-          <AppHeader username={name} userrole={role} setAuth={setAuth} />
-        ) : (
-          <div></div>
-        )}
+        <AppHeader username={name} userrole={role} setAuth={setAuth} />
         <Switch>
           <Route
             exact

@@ -1,6 +1,7 @@
 .logo-config {
-    width: 5rem;
+    padding: 5px;
     height: auto;
+    filter: invert(1)
 }
 
 .logo {
