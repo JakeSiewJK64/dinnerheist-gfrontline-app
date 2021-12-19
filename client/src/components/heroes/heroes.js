@@ -3,7 +3,7 @@ import Flex from "@react-css/flex";
 import Heroes_Array from "./gun-array";
 import { Tooltip } from "@mui/material";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import HeroDetailsDialog from "./hero-dialog/hero-dialog";
 import {
@@ -13,12 +13,17 @@ import {
 
 const Heroes = () => {
   const dispatch = useDispatch();
+  const openDialog = useSelector((x) => x.heroDialog);
+
   useEffect(() => {
     dispatch(SetHeroes(Heroes_Array));
-  });
+    dispatch(OpenHeroDetailsDialog(false));
+  }, []);
 
   const handleOpen = () => {
+    console.log("hi");
     dispatch(OpenHeroDetailsDialog(true));
+    console.log(openDialog);
   };
 
   return (
@@ -28,8 +33,8 @@ const Heroes = () => {
         <h2>Guns</h2>
         <Flex flexWrap="wrap" row gap="1rem" justifyCenter>
           {Heroes_Array.map((x) => (
-            <Tooltip title={x.name} arrow>
-              <div className="hero-profile" key={x.key} onClick={handleOpen}>
+            <Tooltip title={x.name} arrow key={x.key}>
+              <div className="hero-profile" onClick={handleOpen}>
                 <img
                   draggable="false"
                   src={x.image_url}

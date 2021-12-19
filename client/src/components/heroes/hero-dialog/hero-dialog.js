@@ -12,8 +12,9 @@ import { OpenHeroDetailsDialog } from "../../../redux/actions/heroActions/heroAc
 
 const HeroDetailsDialog = () => {
   const dispatch = useDispatch();
-  const openHeroDialog = useSelector((state) => state.heroes);
+  const openHeroDialog = useSelector((state) => state.heroDialog);
 
+  useEffect(() => {});
   const handleClose = () => {
     dispatch(OpenHeroDetailsDialog(false));
   };
