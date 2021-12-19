@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const path = require("path");
+const os = require("os");
 const PORT = process.env.PORT || 5000;
 
 const indexRouter = require("./routes/index");
@@ -26,6 +27,6 @@ app.get("*", (req, res) => {
 app.listen(PORT, () => {
   logger.log({
     level: "info",
-    message: `Server is starting on port ${PORT}`,
+    message: `\nServer is starting on port: ${PORT}\nServer Architecture: ${os.platform}\nArchitecture: ${os.arch}`,
   });
 });
