@@ -63,7 +63,6 @@ const Users = () => {
   }, []);
 
   if (isLoading) {
-    fetchUsers();
     return <LoadingSpinner />;
   } else {
     return (

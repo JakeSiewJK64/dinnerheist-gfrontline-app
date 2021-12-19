@@ -10,7 +10,6 @@ import {
   TextField,
   DialogContentText,
 } from "@mui/material";
-import LoadingSpinner from "../../../shared/shared-components/loadingSpinner/loadingSpinner";
 import { OpenHeroDetailsDialog } from "../../../redux/actions/heroActions/heroActions";
 
 const HeroDetailsDialog = () => {
