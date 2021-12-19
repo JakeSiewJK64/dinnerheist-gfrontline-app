@@ -21,9 +21,7 @@ const Heroes = () => {
   }, []);
 
   const handleOpen = () => {
-    console.log("hi");
     dispatch(OpenHeroDetailsDialog(true));
-    console.log(openDialog);
   };
 
   return (
