@@ -4,6 +4,10 @@
     overflow: hidden;
 }
 
+.hero-profile:hover{
+    cursor: pointer;
+}
+
 .hero-image {
     width: 75px;
     height: auto;
