@@ -1,0 +1,30 @@
+.info-frame {
+    position: absolute;
+    top: 4rem;
+    left: 24px;
+    width: 16rem;
+    height: 26rem;
+}
+
+.hero-dialog-content {
+    min-height: 35rem;
+}
+
+.rarity-star-container {
+    position: absolute;
+    left: 8.6rem;
+    top: 4rem;
+}
+
+.star {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.category-label {
+    position: absolute;
+    width: 110px;
+    left: 24px;
+    top: 64px;
+    height: 51px;
+}

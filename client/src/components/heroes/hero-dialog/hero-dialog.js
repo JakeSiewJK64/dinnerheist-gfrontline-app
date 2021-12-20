@@ -11,6 +11,10 @@ import {
   DialogContentText,
 } from "@mui/material";
 import { OpenHeroDetailsDialog } from "../../../redux/actions/heroActions/heroActions";
+import infobox_border from "../../../img/Infobox_border.png";
+import star from "../../../img/rarity_star.png";
+import "./hero-dialog.css";
+import { category_label } from "../../../shared/constants";
 
 const HeroDetailsDialog = () => {
   let dispatch = useDispatch();
@@ -44,13 +48,38 @@ const HeroDetailsDialog = () => {
   return hero === undefined || hero === null ? (
     <div></div>
   ) : (
-    <Dialog open={openHeroDialog}>
+    <Dialog
+      open={openHeroDialog}
+      PaperProps={{
+        style: {
+          maxWidth: "100rem",
+          maxHeight: "100rem",
+          width: "60rem",
+        },
+      }}
+    >
       <DialogTitle>{hero.hero_name}</DialogTitle>
-      <DialogContent>
+      <DialogContent className="hero-dialog-content">
         <DialogContentText></DialogContentText>
         <Flex row gap={20} className="m-100">
-          <img src={hero.image_url} alt="" />
-          <Flex column>
+          <div>
+            <img src={hero.image_url} alt="" draggable="false" />
+            <img
+              src={infobox_border}
+              alt=""
+              className="info-frame"
+              draggable="false"
+            />
+            <div className="rarity-star-container">
+              {[...Array(hero.rarity)].map((x) => {
+                return (
+                  <img src={star} alt="" className="star" draggable="false" />
+                );
+              })}
+            </div>
+            <img src={category_label[0].image_url} className="category-label"/>
+          </div>
+          <Flex column className="w-100">
             <TextField
               autoFocus
               margin="dense"
