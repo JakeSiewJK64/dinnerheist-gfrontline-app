@@ -24,13 +24,13 @@ import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
 
+import QRcode from "react-qr-code";
+
 import Icon from "@mdi/react";
 import {
-  mdiAccount,
   mdiShoeSneaker,
   mdiFactory,
   mdiFlag,
-  mdiRun,
   mdiBrush,
   mdiMicrophone,
   mdiCardAccountDetails,
@@ -89,36 +89,44 @@ const HeroDetailsDialog = () => {
       <DialogContent className="hero-dialog-content">
         <DialogContentText></DialogContentText>
         <Flex row gap={20} className="m-100">
-          <div>
-            <img src={hero.image_url} alt="" draggable="false" />
-            <img
-              src={infobox_border}
-              alt=""
-              className="info-frame"
-              draggable="false"
-            />
-            <div className="hero-id">
-              <h2>{hero.hero_id}</h2>
+          <Flex column>
+            <div className="mx-auto mb-2">
+              <QRcode
+                value={window.location.href + "/" + hero.hero_id}
+                size={100}
+              />
             </div>
-            <div className="rarity-star-container">
-              {[...Array(hero.rarity)].map((x, i) => {
-                return (
-                  <img
-                    src={star}
-                    key={i}
-                    alt=""
-                    className="star"
-                    draggable="false"
-                  />
-                );
-              })}
+            <div className="hero-profile-base">
+              <img src={hero.image_url} alt="" draggable="false" />
+              <img
+                src={infobox_border}
+                alt=""
+                className="info-frame"
+                draggable="false"
+              />
+              <div className="hero-id">
+                <h2>{hero.hero_id}</h2>
+              </div>
+              <div className="rarity-star-container">
+                {[...Array(hero.rarity)].map((x, i) => {
+                  return (
+                    <img
+                      src={star}
+                      key={i}
+                      alt=""
+                      className="star"
+                      draggable="false"
+                    />
+                  );
+                })}
+              </div>
+              <img
+                src={category_label[0].image_url}
+                draggable="false"
+                className="category-label"
+              />
             </div>
-            <img
-              src={category_label[0].image_url}
-              draggable="false"
-              className="category-label"
-            />
-          </div>
+          </Flex>
           <Flex column className="w-100 hero-info">
             <img
               src={hero.faction_image_url}
@@ -390,7 +398,7 @@ const HeroDetailsDialog = () => {
               <TextField
                 autoFocus
                 margin="dense"
-                label="Revise"
+                label="Revise / Manufacturer"
                 type="text"
                 fullWidth
                 variant="outlined"
