@@ -42,7 +42,8 @@ router.get("/getHeroById/:id", cors(), async (req, res) => {
         c.category_name,
         co.country_name,
         t.team_name,
-        f.faction_name
+        f.faction_name,
+        encode(f.image_url, 'escape') AS faction_image_url
         FROM heroes h LEFT OUTER JOIN category c ON c.category_id = h.category
         JOIN countries co ON co.country_id = h.origin_country
         JOIN team t ON t.team_id = h.team_id

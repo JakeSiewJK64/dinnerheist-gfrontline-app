@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 5000;
 
 const indexRouter = require("./routes/index");
 const userRouter = require("./routes/users/usersController");
-const heroesRouter = require("./routes/heroes/heroes");
+const heroesRouter = require("./routes/heroes/heroesController");
 const authRouter = require("./routes/authentication/jwtAuth");
 const logger = require("./utils/logger");
 
