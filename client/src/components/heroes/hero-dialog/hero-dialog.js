@@ -71,13 +71,23 @@ const HeroDetailsDialog = () => {
               draggable="false"
             />
             <div className="rarity-star-container">
-              {[...Array(hero.rarity)].map((x) => {
+              {[...Array(hero.rarity)].map((x, i) => {
                 return (
-                  <img src={star} alt="" className="star" draggable="false" />
+                  <img
+                    src={star}
+                    key={i}
+                    alt=""
+                    className="star"
+                    draggable="false"
+                  />
                 );
               })}
             </div>
-            <img src={category_label[0].image_url} className="category-label"/>
+            <img
+              src={category_label[0].image_url}
+              draggable="false"
+              className="category-label"
+            />
           </div>
           <Flex column className="w-100">
             <TextField
