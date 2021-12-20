@@ -21,8 +21,27 @@ import BadgeIcon from "@mui/icons-material/Badge";
 import ShieldIcon from "@mui/icons-material/Shield";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
-import WarningIcon from "@mui/icons-material/Warning";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
+
+import Icon from "@mdi/react";
+import {
+  mdiAccount,
+  mdiShoeSneaker,
+  mdiFactory,
+  mdiFlag,
+  mdiRun,
+  mdiBrush,
+  mdiMicrophone,
+  mdiCardAccountDetails,
+  mdiPistol,
+  mdiEarth,
+  mdiRunFast,
+  mdiSword,
+  mdiChartBoxOutline,
+  mdiText,
+  mdiInformation,
+} from "@mdi/js";
 
 const HeroDetailsDialog = () => {
   let dispatch = useDispatch();
@@ -123,11 +142,12 @@ const HeroDetailsDialog = () => {
                 ),
               }}
             />
-            <Flex>
-              <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
+            <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
+              <Flex row gap={5}>
+                <Icon path={mdiChartBoxOutline} size={1} />
                 <strong>Game Stats</strong>
-              </div>
-            </Flex>
+              </Flex>
+            </div>
             <Flex row gap={10} className="w-100">
               <TextField
                 autoFocus
@@ -208,7 +228,7 @@ const HeroDetailsDialog = () => {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <WarningAmberIcon />
+                      <HealthAndSafetyIcon />
                     </InputAdornment>
                   ),
                 }}
@@ -224,7 +244,7 @@ const HeroDetailsDialog = () => {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <AccessTimeIcon />
+                      <Icon path={mdiShoeSneaker} size={1} />
                     </InputAdornment>
                   ),
                 }}
@@ -258,7 +278,11 @@ const HeroDetailsDialog = () => {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <AccessTimeIcon />
+                      <img
+                        src="https://iopwiki.com/images/thumb/b/b0/Icon_penetration.png/25px-Icon_penetration.png"
+                        style={{ filter: "invert(45%)" }}
+                        draggable="false"
+                      />
                     </InputAdornment>
                   ),
                 }}
@@ -276,7 +300,7 @@ const HeroDetailsDialog = () => {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <WarningAmberIcon />
+                      <Icon path={mdiPistol} size={1} />
                     </InputAdornment>
                   ),
                 }}
@@ -292,18 +316,19 @@ const HeroDetailsDialog = () => {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <AccessTimeIcon />
+                      <Icon path={mdiRunFast} size={1} />
                     </InputAdornment>
                   ),
                 }}
               />
             </Flex>
             {/* Gun Info */}
-            <Flex>
-              <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
+            <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
+              <Flex row gap={5}>
+                <Icon path={mdiPistol} size={1} />
                 <strong>Gun Information</strong>
-              </div>
-            </Flex>
+              </Flex>
+            </div>
             <Flex column gap={10} className="w-100">
               <TextField
                 autoFocus
@@ -316,7 +341,7 @@ const HeroDetailsDialog = () => {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <WarningAmberIcon />
+                      <Icon path={mdiCardAccountDetails} size={1} />
                     </InputAdornment>
                   ),
                 }}
@@ -332,18 +357,19 @@ const HeroDetailsDialog = () => {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <AccessTimeIcon />
+                      <Icon path={mdiEarth} size={1} />
                     </InputAdornment>
                   ),
                 }}
               />
             </Flex>
             {/* Game Info */}
-            <Flex>
-              <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
+            <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
+              <Flex row gap={5}>
+                <Icon path={mdiInformation} size={1} />
                 <strong>Game Information</strong>
-              </div>
-            </Flex>
+              </Flex>
+            </div>
             <Flex row gap={10} className="w-100">
               <TextField
                 autoFocus
@@ -356,7 +382,7 @@ const HeroDetailsDialog = () => {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <WarningAmberIcon />
+                      <Icon path={mdiFlag} size={1} />
                     </InputAdornment>
                   ),
                 }}
@@ -372,7 +398,7 @@ const HeroDetailsDialog = () => {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <AccessTimeIcon />
+                      <Icon path={mdiFactory} size={1} />
                     </InputAdornment>
                   ),
                 }}
@@ -390,7 +416,7 @@ const HeroDetailsDialog = () => {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <WarningAmberIcon />
+                      <Icon path={mdiMicrophone} size={1} />
                     </InputAdornment>
                   ),
                 }}
@@ -406,18 +432,36 @@ const HeroDetailsDialog = () => {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <AccessTimeIcon />
+                      <Icon path={mdiBrush} title="User Profile" size={1} />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Flex>
+            <Flex className="w-100" column>
+              <TextField
+                autoFocus
+                margin="dense"
+                label="Team"
+                fullWidth
+                variant="outlined"
+                value={hero.team_name}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <Icon path={mdiSword} size={1} />
                     </InputAdornment>
                   ),
                 }}
               />
             </Flex>
             {/* Gun Description */}
-            <Flex>
-              <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
+            <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
+              <Flex row gap={5}>
+                <Icon path={mdiText} size={1} />
                 <strong>{hero.hero_name} Background</strong>
-              </div>
-            </Flex>
+              </Flex>
+            </div>
             <Flex row gap={10} className="w-100">
               <div>{hero.description}</div>
             </Flex>
