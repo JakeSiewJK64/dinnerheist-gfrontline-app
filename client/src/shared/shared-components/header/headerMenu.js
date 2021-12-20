@@ -24,6 +24,7 @@ const HeaderMenu = ({ name, role, setAuth }) => {
     setAnchorEl(null);
   };
 
+  console.log(name);
   return (
     <div className="mt-3 w-100">
       {achorEl ? (
@@ -86,11 +87,22 @@ const HeaderMenu = ({ name, role, setAuth }) => {
       ) : (
         <div></div>
       )}
-      <Tooltip title="Account settings">
-        <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
-          <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
-        </IconButton>
-      </Tooltip>
+      {name !== undefined && role !== null ? (
+        <Tooltip title="Account settings">
+          <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
+            <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+          </IconButton>
+        </Tooltip>
+      ) : (
+        <Button>
+          <Link
+            style={{ textDecoration: "none", color: "black" }}
+            to="/authentication/login"
+          >
+            Login
+          </Link>
+        </Button>
+      )}
     </div>
   );
 };

@@ -31,7 +31,6 @@ export const AppHeader = ({ username, userrole, setAuth }) => {
               );
             } else if (
               x.role !== undefined &&
-              x.role.includes("administrator") &&
               userrole === "administrator"
             ) {
               return (
