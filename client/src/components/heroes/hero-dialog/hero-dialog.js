@@ -123,6 +123,11 @@ const HeroDetailsDialog = () => {
                 ),
               }}
             />
+            <Flex>
+              <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
+                <strong>Game Stats</strong>
+              </div>
+            </Flex>
             <Flex row gap={10} className="w-100">
               <TextField
                 autoFocus
@@ -229,6 +234,120 @@ const HeroDetailsDialog = () => {
               <TextField
                 autoFocus
                 margin="dense"
+                label="Accuracy"
+                type="text"
+                fullWidth
+                variant="outlined"
+                value={hero.accuracy}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <WarningAmberIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <TextField
+                autoFocus
+                margin="dense"
+                label="Armor Penetration"
+                type="text"
+                fullWidth
+                variant="outlined"
+                value={hero.armor_penetration}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <AccessTimeIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Flex>
+            <Flex row gap={10} className="w-100">
+              <TextField
+                autoFocus
+                margin="dense"
+                label="Firerate"
+                type="text"
+                fullWidth
+                variant="outlined"
+                value={hero.firerate}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <WarningAmberIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <TextField
+                autoFocus
+                margin="dense"
+                label="Evasion"
+                type="text"
+                fullWidth
+                variant="outlined"
+                value={hero.evasion}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <AccessTimeIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Flex>
+            {/* Gun Info */}
+            <Flex>
+              <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
+                <strong>Gun Information</strong>
+              </div>
+            </Flex>
+            <Flex column gap={10} className="w-100">
+              <TextField
+                autoFocus
+                margin="dense"
+                label="Full Name"
+                type="text"
+                fullWidth
+                variant="outlined"
+                value={hero.hero_fullname}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <WarningAmberIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <TextField
+                autoFocus
+                margin="dense"
+                label="Origin Country"
+                type="text"
+                fullWidth
+                variant="outlined"
+                value={hero.country_name}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <AccessTimeIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Flex>
+            {/* Game Info */}
+            <Flex>
+              <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
+                <strong>Game Information</strong>
+              </div>
+            </Flex>
+            <Flex row gap={10} className="w-100">
+              <TextField
+                autoFocus
+                margin="dense"
                 label="Faction"
                 type="text"
                 fullWidth
@@ -245,11 +364,11 @@ const HeroDetailsDialog = () => {
               <TextField
                 autoFocus
                 margin="dense"
-                label="Country of Origin"
+                label="Revise"
                 type="text"
                 fullWidth
                 variant="outlined"
-                value={hero.country_name}
+                value={hero.revise}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -263,11 +382,11 @@ const HeroDetailsDialog = () => {
               <TextField
                 autoFocus
                 margin="dense"
-                label="Revise"
+                label="Voice Actor"
                 type="text"
                 fullWidth
                 variant="outlined"
-                value={hero.revise}
+                value={hero.va}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -279,11 +398,11 @@ const HeroDetailsDialog = () => {
               <TextField
                 autoFocus
                 margin="dense"
-                label="Manufacturer"
+                label="Artist"
                 type="text"
                 fullWidth
                 variant="outlined"
-                value={hero.manufacturer}
+                value={hero.artist}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -293,175 +412,14 @@ const HeroDetailsDialog = () => {
                 }}
               />
             </Flex>
-            <Flex row gap={10} className="w-100">
-              <TextField
-                autoFocus
-                margin="dense"
-                label="Revise"
-                type="text"
-                fullWidth
-                variant="outlined"
-                value={hero.revise}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <WarningAmberIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <TextField
-                autoFocus
-                margin="dense"
-                label="Manufacturer"
-                type="text"
-                fullWidth
-                variant="outlined"
-                value={hero.manufacturer}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <AccessTimeIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
+            {/* Gun Description */}
+            <Flex>
+              <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
+                <strong>{hero.hero_name} Background</strong>
+              </div>
             </Flex>
             <Flex row gap={10} className="w-100">
-              <TextField
-                autoFocus
-                margin="dense"
-                label="Revise"
-                type="text"
-                fullWidth
-                variant="outlined"
-                value={hero.revise}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <WarningAmberIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <TextField
-                autoFocus
-                margin="dense"
-                label="Manufacturer"
-                type="text"
-                fullWidth
-                variant="outlined"
-                value={hero.manufacturer}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <AccessTimeIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </Flex>
-            <Flex row gap={10} className="w-100">
-              <TextField
-                autoFocus
-                margin="dense"
-                label="Revise"
-                type="text"
-                fullWidth
-                variant="outlined"
-                value={hero.revise}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <WarningAmberIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <TextField
-                autoFocus
-                margin="dense"
-                label="Manufacturer"
-                type="text"
-                fullWidth
-                variant="outlined"
-                value={hero.manufacturer}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <AccessTimeIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </Flex>
-            <Flex row gap={10} className="w-100">
-              <TextField
-                autoFocus
-                margin="dense"
-                label="Revise"
-                type="text"
-                fullWidth
-                variant="outlined"
-                value={hero.revise}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <WarningAmberIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <TextField
-                autoFocus
-                margin="dense"
-                label="Manufacturer"
-                type="text"
-                fullWidth
-                variant="outlined"
-                value={hero.manufacturer}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <AccessTimeIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </Flex>
-            <Flex row gap={10} className="w-100">
-              <TextField
-                autoFocus
-                margin="dense"
-                label="Revise"
-                type="text"
-                fullWidth
-                variant="outlined"
-                value={hero.revise}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <WarningAmberIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-              <TextField
-                autoFocus
-                margin="dense"
-                label="Manufacturer"
-                type="text"
-                fullWidth
-                variant="outlined"
-                value={hero.manufacturer}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <AccessTimeIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
+              <div>{hero.description}</div>
             </Flex>
           </Flex>
         </Flex>

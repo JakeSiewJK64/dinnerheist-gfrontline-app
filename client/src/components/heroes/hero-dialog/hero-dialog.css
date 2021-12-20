@@ -21,6 +21,11 @@
     height: 50rem;
 }
 
+.hero-dialog-header {
+    background: #2c3e50;
+    color: #fff;
+}
+
 .faction_image {
     width: 15rem;
     margin: auto;
