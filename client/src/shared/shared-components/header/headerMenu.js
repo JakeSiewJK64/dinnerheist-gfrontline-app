@@ -24,7 +24,6 @@ const HeaderMenu = ({ name, role, setAuth }) => {
     setAnchorEl(null);
   };
 
-  console.log(name);
   return (
     <div className="mt-3 w-100">
       {achorEl ? (
