@@ -42,11 +42,19 @@ export const category_label = [
   {
     id: 1,
     category: "SMG",
+    stars: 4,
     image_url: "https://iopwiki.com/images/7/76/Icon_SMG_4star.png",
   },
   {
     id: 2,
     category: "AR",
+    stars: 4,
     image_url: "https://iopwiki.com/images/9/93/Icon_AR_4star.png",
+  },
+  {
+    id: 3,
+    category: "AR",
+    stars: 5,
+    image_url: "https://iopwiki.com/images/b/b6/Icon_AR_5star.png",
   },
 ];
