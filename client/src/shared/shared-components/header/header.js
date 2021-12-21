@@ -8,19 +8,19 @@ import HeaderMenu from "./headerMenu";
 
 export const AppHeader = ({ username, userrole, setAuth }) => {
   return (
-    <div className="w-100">
+    <div className="w-100" style={{ backgroundColor: "#222f3e" }}>
       <Flex justifySpaceBetween>
         <Link to="/heroes" className="logo">
           <Flex row justifyCenter>
             <img src={gfTitle} className="logo-config" alt="logo" />
           </Flex>
         </Link>
-        <Flex className="me-5">
+        <Flex className="me-5 header-buttons">
           {header_routes.map((x) => {
             if (x.role === undefined) {
               return (
                 <Link
-                  className="m-2 p-2 link-style"
+                  className="mt-3 p-2 link-style"
                   to={x.route}
                   key={header_routes.indexOf(x)}
                 >
@@ -29,13 +29,10 @@ export const AppHeader = ({ username, userrole, setAuth }) => {
                   </Button>
                 </Link>
               );
-            } else if (
-              x.role !== undefined &&
-              userrole === "administrator"
-            ) {
+            } else if (x.role !== undefined && userrole === "administrator") {
               return (
                 <Link
-                  className="m-2 p-2 link-style"
+                  className="mt-3 p-2 link-style"
                   to={x.route}
                   key={header_routes.indexOf(x)}
                 >
