@@ -32,6 +32,7 @@ import {
   mdiFactory,
   mdiFlag,
   mdiBrush,
+  mdiTarget,
   mdiMicrophone,
   mdiCardAccountDetails,
   mdiPistol,
@@ -42,6 +43,8 @@ import {
   mdiText,
   mdiInformation,
 } from "@mdi/js";
+
+import Barcode from "react-barcode";
 
 const HeroDetailsDialog = () => {
   let dispatch = useDispatch();
@@ -80,22 +83,28 @@ const HeroDetailsDialog = () => {
       PaperProps={{
         style: {
           maxWidth: "100rem",
-          maxHeight: "100rem",
+          maxHeight: "66rem",
           width: "60rem",
         },
       }}
     >
-      <DialogTitle>{hero.hero_name}</DialogTitle>
+      <DialogTitle>
+        <Flex row justifySpaceBetween>
+          <h3 className="my-auto">
+            <strong>{hero.hero_name}</strong>
+          </h3>
+          <Barcode
+            value={window.location.href + "/" + hero.hero_id}
+            width={1.8}
+            displayValue={false}
+            height={45}
+          />
+        </Flex>
+      </DialogTitle>
       <DialogContent className="hero-dialog-content">
         <DialogContentText></DialogContentText>
         <Flex row gap={20} className="m-100">
-          <Flex column>
-            <div className="mx-auto mb-2">
-              <QRcode
-                value={window.location.href + "/" + hero.hero_id}
-                size={100}
-              />
-            </div>
+          <Flex column style={{ height: "0rem" }}>
             <div className="hero-profile-base">
               <img src={hero.image_url} alt="" draggable="false" />
               <img
@@ -124,6 +133,12 @@ const HeroDetailsDialog = () => {
                 src={category_label[0].image_url}
                 draggable="false"
                 className="category-label"
+              />
+            </div>
+            <div className="mx-auto mb-2">
+              <QRcode
+                value={window.location.href + "/" + hero.hero_id}
+                size={100}
               />
             </div>
           </Flex>
@@ -270,7 +285,7 @@ const HeroDetailsDialog = () => {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <WarningAmberIcon />
+                      <Icon path={mdiTarget} size={1} />
                     </InputAdornment>
                   ),
                 }}
