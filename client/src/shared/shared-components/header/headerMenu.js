@@ -72,7 +72,7 @@ const HeaderMenu = ({ name, role, setAuth }) => {
             ) : (
               <Flex>
                 <Link to="/authentication/login">
-                  <Button variant="text" className="item">
+                  <Button variant="outlined" className="item">
                     <ListItemIcon>
                       <Logout fontSize="small" />
                     </ListItemIcon>
@@ -93,9 +93,9 @@ const HeaderMenu = ({ name, role, setAuth }) => {
           </IconButton>
         </Tooltip>
       ) : (
-        <Button>
+        <Button variant="outlined" className="mt-2 ">
           <Link
-            style={{ textDecoration: "none", color: "black" }}
+            style={{ textDecoration: "none", color: "white" }}
             to="/authentication/login"
           >
             Login

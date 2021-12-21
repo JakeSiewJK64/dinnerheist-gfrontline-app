@@ -52,7 +52,7 @@ const Register = ({ setAuth }) => {
       <div className="w-100">
         <Card className="w-25 m-auto mt-5" elevation={12}>
           <Flex column alignItemsCenter>
-            <img src={logo} style={{ width: "10rem" }} alt="logo"/>
+            <img src={logo} style={{ width: "10rem" }} alt="logo" />
             <h2 className="m-2 text-center">Register</h2>
           </Flex>
           <Flex className="p-2" justifyCenter alignItemsCenter>
@@ -86,12 +86,12 @@ const Register = ({ setAuth }) => {
               </Flex>
             </form>
           </Flex>
+          <div className="d-flex justify-content-center my-4">
+            <Link to="/authentication/login">
+              Already have an account? Sign in here!
+            </Link>
+          </div>
         </Card>
-      </div>
-      <div className="d-flex justify-content-center my-4">
-        <Link to="/authentication/login">
-          Already have an account? Sign in here!
-        </Link>
       </div>
     </Fragment>
   );
