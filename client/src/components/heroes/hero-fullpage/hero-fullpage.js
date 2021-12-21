@@ -118,11 +118,14 @@ const HeroFullPage = (props) => {
                 className="category-label"
               />
             </div>
-            <div className="mx-auto mb-2" style={{ border: "white solid 2px" }}>
-              <QRcode
-                value={window.location.href + "/" + hero.hero_id}
-                size={100}
-              />
+            <div className="mx-auto mb-2 barcode-container text-center">
+              <div className="border border-white">
+                <QRcode
+                  value={window.location.href + "/" + hero.hero_id}
+                  size={100}
+                />
+              </div>
+              <p>Scan Me!</p>
             </div>
           </Flex>
           <Flex column className="w-100 hero-fullpage-gun-info-container">

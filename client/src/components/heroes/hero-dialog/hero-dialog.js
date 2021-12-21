@@ -145,10 +145,12 @@ const HeroDetailsDialog = () => {
               />
             </div>
             <div className="mx-auto mb-2 barcode-container text-center">
-              <QRcode
-                value={window.location.origin + "/hero/" + hero.hero_id}
-                size={100}
-              />
+              <div className="border border-white">
+                <QRcode
+                  value={window.location.origin + "/hero/" + hero.hero_id}
+                  size={100}
+                />
+              </div>
               <p>Scan me!</p>
             </div>
           </Flex>
