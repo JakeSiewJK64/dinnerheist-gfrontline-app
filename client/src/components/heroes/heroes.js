@@ -100,7 +100,14 @@ const Heroes = () => {
                         })}
                       </div>
                       <img
-                        src={category_label[0].image_url}
+                        src={
+                          category_label.filter(function (cat) {
+                            return (
+                              cat.category === x.category_name &&
+                              cat.stars === x.rarity
+                            );
+                          })[0].image_url
+                        }
                         draggable="false"
                         className="category-label-tooltip"
                       />

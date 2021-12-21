@@ -114,17 +114,21 @@ const HeroFullPage = (props) => {
                 })}
               </div>
               <img
-                src={category_label[0].image_url}
+                src={
+                  category_label.filter(function (x) {
+                    return (
+                      x.category === hero.category_name &&
+                      x.stars === hero.rarity
+                    );
+                  })[0].image_url
+                }
                 draggable="false"
                 className="category-label"
               />
             </div>
             <div className="mx-auto mb-2 barcode-container text-center">
               <div className="border border-white">
-                <QRcode
-                  value={window.location.href + "/" + hero.hero_id}
-                  size={100}
-                />
+                <QRcode value={window.location.href} size={100} />
               </div>
               <p>Scan Me!</p>
             </div>
@@ -514,17 +518,21 @@ const HeroFullPage = (props) => {
                   <div>{hero.description}</div>
                 </Flex>
               </div>
-              <div>
-                <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
-                  <Flex row gap={5}>
-                    <Icon path={mdiEmoticonHappyOutline} size={1} />
-                    <strong>Personality</strong>
+              {hero.personality ? (
+                <div>
+                  <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
+                    <Flex row gap={5}>
+                      <Icon path={mdiEmoticonHappyOutline} size={1} />
+                      <strong>Personality</strong>
+                    </Flex>
+                  </div>
+                  <Flex row gap={10} className="w-100">
+                    <div>{hero.personality}</div>
                   </Flex>
                 </div>
-                <Flex row gap={10} className="w-100">
-                  <div>{hero.personality}</div>
-                </Flex>
-              </div>
+              ) : (
+                <div></div>
+              )}
             </Flex>
           </Flex>
         </Flex>
