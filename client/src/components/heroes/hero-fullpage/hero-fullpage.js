@@ -63,10 +63,15 @@ const HeroFullPage = (props) => {
   return hero === undefined || hero === null ? (
     <div></div>
   ) : (
-    <div className="card w-75 my-5 mx-auto">
+    <div
+      className="card w-75 my-5 mx-auto text-white"
+      style={{ backgroundColor: "#222f3e" }}
+    >
       <Flex column gap={20} className="card-body shadow-lg">
         <Flex column alignContentCenter className="ms-auto text-center me-2">
           <Barcode
+            background="#222f3e"
+            lineColor="#fff"
             value={window.location.href}
             width={1}
             height={50}
@@ -75,8 +80,11 @@ const HeroFullPage = (props) => {
           <p style={{ fontFamily: "courier" }}>Codename: {hero.hero_name}</p>
         </Flex>
         <Flex row gap={20} className="m-100 m-4">
-          <Flex column style={{ height: "0rem" }}>
-            <div className="hero-profile-base">
+          <Flex column>
+            <div
+              className="hero-profile-base"
+              style={{ border: "white solid 2px" }}
+            >
               <img src={hero.image_url} alt="" draggable="false" />
               <img
                 src={infobox_border}
@@ -106,7 +114,7 @@ const HeroFullPage = (props) => {
                 className="category-label"
               />
             </div>
-            <div className="mx-auto mb-2">
+            <div className="mx-auto mb-2" style={{ border: "white solid 2px" }}>
               <QRcode
                 value={window.location.href + "/" + hero.hero_id}
                 size={100}
