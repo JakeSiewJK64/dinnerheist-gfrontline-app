@@ -6,6 +6,8 @@ import infobox_border from "../../../img/Infobox_border.png";
 import star from "../../../img/rarity_star.png";
 import { category_label } from "../../../shared/constants";
 
+import { useStyles } from "../../../shared/constants";
+
 import BadgeIcon from "@mui/icons-material/Badge";
 import ShieldIcon from "@mui/icons-material/Shield";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
@@ -59,6 +61,8 @@ const HeroFullPage = (props) => {
       GetHeroById(props.match.params.id);
     }
   }, [heroId]);
+
+  const classes = useStyles();
 
   return hero === undefined || hero === null ? (
     <div></div>
@@ -129,6 +133,7 @@ const HeroFullPage = (props) => {
               className="faction_image"
             />
             <TextField
+              className={classes.heroStyles}
               autoFocus
               margin="dense"
               label="Gun Name"
@@ -153,6 +158,7 @@ const HeroFullPage = (props) => {
             </div>
             <Flex row gap={10} className="w-100">
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Armor"
@@ -170,6 +176,7 @@ const HeroFullPage = (props) => {
                 }}
               />
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Damage"
@@ -189,6 +196,7 @@ const HeroFullPage = (props) => {
             </Flex>
             <Flex row gap={10} className="w-100">
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Critical Damage"
@@ -206,6 +214,7 @@ const HeroFullPage = (props) => {
                 }}
               />
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Critical Rate"
@@ -225,6 +234,7 @@ const HeroFullPage = (props) => {
             </Flex>
             <Flex row gap={10} className="w-100">
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Health"
@@ -242,6 +252,7 @@ const HeroFullPage = (props) => {
                 }}
               />
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Movement Speed"
@@ -261,6 +272,7 @@ const HeroFullPage = (props) => {
             </Flex>
             <Flex row gap={10} className="w-100">
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Accuracy"
@@ -278,6 +290,7 @@ const HeroFullPage = (props) => {
                 }}
               />
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Armor Penetration"
@@ -301,6 +314,7 @@ const HeroFullPage = (props) => {
             </Flex>
             <Flex row gap={10} className="w-100">
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Firerate"
@@ -318,6 +332,7 @@ const HeroFullPage = (props) => {
                 }}
               />
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Evasion"
@@ -344,6 +359,7 @@ const HeroFullPage = (props) => {
             </div>
             <Flex column gap={10} className="w-100">
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Full Name"
@@ -361,6 +377,7 @@ const HeroFullPage = (props) => {
                 }}
               />
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Origin Country"
@@ -387,6 +404,7 @@ const HeroFullPage = (props) => {
             </div>
             <Flex row gap={10} className="w-100">
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Faction"
@@ -404,6 +422,7 @@ const HeroFullPage = (props) => {
                 }}
               />
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Revise / Manufacturer"
@@ -423,6 +442,7 @@ const HeroFullPage = (props) => {
             </Flex>
             <Flex row gap={10} className="w-100">
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Voice Actor"
@@ -440,6 +460,7 @@ const HeroFullPage = (props) => {
                 }}
               />
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Artist"
@@ -459,6 +480,7 @@ const HeroFullPage = (props) => {
             </Flex>
             <Flex className="w-100" column>
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Team"

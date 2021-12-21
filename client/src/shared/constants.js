@@ -1,3 +1,5 @@
+import { makeStyles } from "@material-ui/core/styles";
+
 export const header_routes = [
   {
     title: "Users",
@@ -9,6 +11,32 @@ export const header_routes = [
     route: "/heroes",
   },
 ];
+
+export const useStyles = makeStyles((theme) => ({
+  heroStyles: {
+    "& .css-1kty9di-MuiFormLabel-root-MuiInputLabel-root": {
+      color: "#fff",
+    },
+    "& .css-1kty9di-MuiFormLabel-root-MuiInputLabel-root.Mui-focused": {
+      color: "#fff",
+    },
+    "& .MuiOutlinedInput-root": {
+      color: "#fff",
+    },
+    "& .css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
+      borderColor: "#fff",
+    },
+    "& .css-8j6b76-MuiInputBase-root-MuiOutlinedInput-root": {
+      color: "#fff",
+    },
+    "& .css-ittuaa-MuiInputAdornment-root": {
+      color: "#fff",
+    },
+    "&:after": {
+      borderBottomColor: "#fff",
+    },
+  },
+}));
 
 export const category_label = [
   {
