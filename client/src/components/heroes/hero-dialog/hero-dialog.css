@@ -19,7 +19,7 @@
 .hero-info {
     overflow-x: hidden;
     overflow-y: scroll;
-    height: 50rem;
+    height: 60vh;
 }
 
 .hero-dialog-header {
