@@ -128,6 +128,7 @@ const HeroFullPage = (props) => {
             value={hero.hero_name}
             variant="outlined"
             InputProps={{
+              readOnly:(true),
               startAdornment: (
                 <InputAdornment position="start">
                   <BadgeIcon />
@@ -151,6 +152,7 @@ const HeroFullPage = (props) => {
               variant="outlined"
               value={hero.armor}
               InputProps={{
+                readOnly:(true),
                 startAdornment: (
                   <InputAdornment position="start">
                     <ShieldIcon />
@@ -167,6 +169,7 @@ const HeroFullPage = (props) => {
               variant="outlined"
               value={hero.hero_damage}
               InputProps={{
+                readOnly:(true),
                 startAdornment: (
                   <InputAdornment position="start">
                     <LocalFireDepartmentIcon />
@@ -185,6 +188,7 @@ const HeroFullPage = (props) => {
               variant="outlined"
               value={hero.crit_damage}
               InputProps={{
+                readOnly:(true),
                 startAdornment: (
                   <InputAdornment position="start">
                     <WarningAmberIcon />
@@ -201,6 +205,7 @@ const HeroFullPage = (props) => {
               variant="outlined"
               value={hero.crit_rate}
               InputProps={{
+                readOnly:(true),
                 startAdornment: (
                   <InputAdornment position="start">
                     <AccessTimeIcon />
@@ -219,6 +224,7 @@ const HeroFullPage = (props) => {
               variant="outlined"
               value={hero.health}
               InputProps={{
+                readOnly:(true),
                 startAdornment: (
                   <InputAdornment position="start">
                     <HealthAndSafetyIcon />
@@ -235,6 +241,7 @@ const HeroFullPage = (props) => {
               variant="outlined"
               value={hero.move_speed}
               InputProps={{
+                readOnly:(true),
                 startAdornment: (
                   <InputAdornment position="start">
                     <Icon path={mdiShoeSneaker} size={1} />
@@ -253,6 +260,7 @@ const HeroFullPage = (props) => {
               variant="outlined"
               value={hero.accuracy}
               InputProps={{
+                readOnly:(true),
                 startAdornment: (
                   <InputAdornment position="start">
                     <Icon path={mdiTarget} size={1} />
@@ -269,6 +277,7 @@ const HeroFullPage = (props) => {
               variant="outlined"
               value={hero.armor_penetration}
               InputProps={{
+                readOnly:(true),
                 startAdornment: (
                   <InputAdornment position="start">
                     <img
@@ -291,6 +300,7 @@ const HeroFullPage = (props) => {
               variant="outlined"
               value={hero.firerate}
               InputProps={{
+                readOnly:(true),
                 startAdornment: (
                   <InputAdornment position="start">
                     <Icon path={mdiPistol} size={1} />
@@ -307,6 +317,7 @@ const HeroFullPage = (props) => {
               variant="outlined"
               value={hero.evasion}
               InputProps={{
+                readOnly:(true),
                 startAdornment: (
                   <InputAdornment position="start">
                     <Icon path={mdiRunFast} size={1} />
@@ -332,6 +343,7 @@ const HeroFullPage = (props) => {
               variant="outlined"
               value={hero.hero_fullname}
               InputProps={{
+                readOnly:(true),
                 startAdornment: (
                   <InputAdornment position="start">
                     <Icon path={mdiCardAccountDetails} size={1} />
@@ -348,6 +360,7 @@ const HeroFullPage = (props) => {
               variant="outlined"
               value={hero.country_name}
               InputProps={{
+                readOnly:(true),
                 startAdornment: (
                   <InputAdornment position="start">
                     <Icon path={mdiEarth} size={1} />
@@ -373,6 +386,7 @@ const HeroFullPage = (props) => {
               variant="outlined"
               value={hero.faction_name}
               InputProps={{
+                readOnly:(true),
                 startAdornment: (
                   <InputAdornment position="start">
                     <Icon path={mdiFlag} size={1} />
@@ -389,6 +403,7 @@ const HeroFullPage = (props) => {
               variant="outlined"
               value={hero.revise}
               InputProps={{
+                readOnly:(true),
                 startAdornment: (
                   <InputAdornment position="start">
                     <Icon path={mdiFactory} size={1} />
@@ -407,6 +422,7 @@ const HeroFullPage = (props) => {
               variant="outlined"
               value={hero.va}
               InputProps={{
+                readOnly:(true),
                 startAdornment: (
                   <InputAdornment position="start">
                     <Icon path={mdiMicrophone} size={1} />
@@ -423,6 +439,7 @@ const HeroFullPage = (props) => {
               variant="outlined"
               value={hero.artist}
               InputProps={{
+                readOnly:(true),
                 startAdornment: (
                   <InputAdornment position="start">
                     <Icon path={mdiBrush} title="User Profile" size={1} />
@@ -440,6 +457,7 @@ const HeroFullPage = (props) => {
               variant="outlined"
               value={hero.team_name}
               InputProps={{
+                readOnly:(true),
                 startAdornment: (
                   <InputAdornment position="start">
                     <Icon path={mdiSword} size={1} />
