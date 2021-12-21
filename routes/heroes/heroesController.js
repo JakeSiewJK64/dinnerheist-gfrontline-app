@@ -27,6 +27,7 @@ router.get("/getHeroById/:id", cors(), async (req, res) => {
         h.manufacturer,
         h.hero_damage,
         h.va,
+        h.personality,
         h.revise,
         h.evasion,
         h.armor,

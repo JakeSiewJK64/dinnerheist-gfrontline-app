@@ -6,6 +6,8 @@ import infobox_border from "../../../img/Infobox_border.png";
 import star from "../../../img/rarity_star.png";
 import { category_label } from "../../../shared/constants";
 
+import { useStyles } from "../../../shared/constants";
+
 import BadgeIcon from "@mui/icons-material/Badge";
 import ShieldIcon from "@mui/icons-material/Shield";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
@@ -31,6 +33,7 @@ import {
   mdiChartBoxOutline,
   mdiText,
   mdiInformation,
+  mdiEmoticonHappyOutline,
 } from "@mdi/js";
 
 import Barcode from "react-barcode";
@@ -60,13 +63,20 @@ const HeroFullPage = (props) => {
     }
   }, [heroId]);
 
+  const classes = useStyles();
+
   return hero === undefined || hero === null ? (
     <div></div>
   ) : (
-    <div className="card w-75 my-5 mx-auto">
+    <div
+      className="card w-75 my-5 mx-auto text-white"
+      style={{ backgroundColor: "#222f3e" }}
+    >
       <Flex column gap={20} className="card-body shadow-lg">
         <Flex column alignContentCenter className="ms-auto text-center me-2">
           <Barcode
+            background="#222f3e"
+            lineColor="#fff"
             value={window.location.href}
             width={1}
             height={50}
@@ -75,8 +85,11 @@ const HeroFullPage = (props) => {
           <p style={{ fontFamily: "courier" }}>Codename: {hero.hero_name}</p>
         </Flex>
         <Flex row gap={20} className="m-100 m-4">
-          <Flex column style={{ height: "0rem" }}>
-            <div className="hero-profile-base">
+          <Flex column>
+            <div
+              className="hero-profile-base"
+              style={{ border: "white solid 2px" }}
+            >
               <img src={hero.image_url} alt="" draggable="false" />
               <img
                 src={infobox_border}
@@ -106,11 +119,14 @@ const HeroFullPage = (props) => {
                 className="category-label"
               />
             </div>
-            <div className="mx-auto mb-2">
-              <QRcode
-                value={window.location.href + "/" + hero.hero_id}
-                size={100}
-              />
+            <div className="mx-auto mb-2 barcode-container text-center">
+              <div className="border border-white">
+                <QRcode
+                  value={window.location.href + "/" + hero.hero_id}
+                  size={100}
+                />
+              </div>
+              <p>Scan Me!</p>
             </div>
           </Flex>
           <Flex column className="w-100 hero-fullpage-gun-info-container">
@@ -121,6 +137,7 @@ const HeroFullPage = (props) => {
               className="faction_image"
             />
             <TextField
+              className={classes.heroStyles}
               autoFocus
               margin="dense"
               label="Gun Name"
@@ -145,6 +162,7 @@ const HeroFullPage = (props) => {
             </div>
             <Flex row gap={10} className="w-100">
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Armor"
@@ -162,6 +180,7 @@ const HeroFullPage = (props) => {
                 }}
               />
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Damage"
@@ -181,6 +200,7 @@ const HeroFullPage = (props) => {
             </Flex>
             <Flex row gap={10} className="w-100">
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Critical Damage"
@@ -198,6 +218,7 @@ const HeroFullPage = (props) => {
                 }}
               />
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Critical Rate"
@@ -217,6 +238,7 @@ const HeroFullPage = (props) => {
             </Flex>
             <Flex row gap={10} className="w-100">
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Health"
@@ -234,6 +256,7 @@ const HeroFullPage = (props) => {
                 }}
               />
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Movement Speed"
@@ -253,6 +276,7 @@ const HeroFullPage = (props) => {
             </Flex>
             <Flex row gap={10} className="w-100">
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Accuracy"
@@ -270,6 +294,7 @@ const HeroFullPage = (props) => {
                 }}
               />
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Armor Penetration"
@@ -293,6 +318,7 @@ const HeroFullPage = (props) => {
             </Flex>
             <Flex row gap={10} className="w-100">
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Firerate"
@@ -310,6 +336,7 @@ const HeroFullPage = (props) => {
                 }}
               />
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Evasion"
@@ -336,6 +363,7 @@ const HeroFullPage = (props) => {
             </div>
             <Flex column gap={10} className="w-100">
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Full Name"
@@ -353,6 +381,7 @@ const HeroFullPage = (props) => {
                 }}
               />
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Origin Country"
@@ -379,6 +408,7 @@ const HeroFullPage = (props) => {
             </div>
             <Flex row gap={10} className="w-100">
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Faction"
@@ -396,6 +426,7 @@ const HeroFullPage = (props) => {
                 }}
               />
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Revise / Manufacturer"
@@ -415,6 +446,7 @@ const HeroFullPage = (props) => {
             </Flex>
             <Flex row gap={10} className="w-100">
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Voice Actor"
@@ -432,6 +464,7 @@ const HeroFullPage = (props) => {
                 }}
               />
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Artist"
@@ -451,6 +484,7 @@ const HeroFullPage = (props) => {
             </Flex>
             <Flex className="w-100" column>
               <TextField
+                className={classes.heroStyles}
                 autoFocus
                 margin="dense"
                 label="Team"
@@ -468,14 +502,29 @@ const HeroFullPage = (props) => {
               />
             </Flex>
             {/* Gun Description */}
-            <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
-              <Flex row gap={5}>
-                <Icon path={mdiText} size={1} />
-                <strong>{hero.hero_name} Background</strong>
-              </Flex>
-            </div>
-            <Flex row gap={10} className="w-100">
-              <div>{hero.description}</div>
+            <Flex column>
+              <div>
+                <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
+                  <Flex row gap={5}>
+                    <Icon path={mdiText} size={1} />
+                    <strong>{hero.hero_name} Background</strong>
+                  </Flex>
+                </div>
+                <Flex row gap={10} className="w-100">
+                  <div>{hero.description}</div>
+                </Flex>
+              </div>
+              <div>
+                <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
+                  <Flex row gap={5}>
+                    <Icon path={mdiEmoticonHappyOutline} size={1} />
+                    <strong>Personality</strong>
+                  </Flex>
+                </div>
+                <Flex row gap={10} className="w-100">
+                  <div>{hero.personality}</div>
+                </Flex>
+              </div>
             </Flex>
           </Flex>
         </Flex>

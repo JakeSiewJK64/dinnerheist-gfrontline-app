@@ -1,3 +1,11 @@
 .hero-fullpage-gun-info-container {
     height: auto;
 }
+
+.hero-profile-base {
+    height: 26.2rem;
+}
+
+.white-font-color {
+    color: white;
+}

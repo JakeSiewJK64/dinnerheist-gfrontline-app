@@ -1,3 +1,14 @@
+.barcode-container:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    transition: .2s;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.barcode-container {
+    font-family: 'Courier New', Courier, monospace;
+}
+
 .info-frame {
     position: absolute;
     top: 0rem;
