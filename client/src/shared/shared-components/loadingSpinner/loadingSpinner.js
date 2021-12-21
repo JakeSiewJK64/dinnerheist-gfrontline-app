@@ -3,10 +3,10 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 const LoadingSpinner = () => {
   return (
-    <div className="m-auto w-50">
+    <div className="m-auto w-50 text-white">
       <Flex column alignItemsCenter>
         <h4>loading...</h4>
-        <CircularProgress disableShrink size={25} />;
+        <CircularProgress disableShrink size={25} style={{ color: "#fff" }} />
       </Flex>
     </div>
   );

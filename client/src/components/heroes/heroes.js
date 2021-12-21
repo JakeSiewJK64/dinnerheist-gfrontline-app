@@ -54,9 +54,12 @@ const Heroes = () => {
     return <LoadingSpinner />;
   } else {
     return (
-      <div className="w-75 m-auto card mt-5">
+      <div
+        className="w-75 m-auto card mt-5 shadow-lg"
+        style={{ backgroundColor: "#222f3e" }}
+      >
         <HeroDetailsDialog />
-        <div className="card-body">
+        <div className="card-body text-white">
           <h2>Guns</h2>
           <Flex flexWrap="wrap" row gap="1rem" justifyCenter>
             {heroes.map((x) => (

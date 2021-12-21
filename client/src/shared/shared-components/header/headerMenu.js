@@ -87,7 +87,7 @@ const HeaderMenu = ({ name, role, setAuth }) => {
         <div></div>
       )}
       {name !== undefined && role !== null ? (
-        <Tooltip title="Account settings">
+        <Tooltip title="Account settings" className="mt-1">
           <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
             <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
           </IconButton>

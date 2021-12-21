@@ -66,7 +66,7 @@ const Users = () => {
     return <LoadingSpinner />;
   } else {
     return (
-      <div className="w-75 m-auto">
+      <div className="w-75 my-5 mx-auto">
         <UserDetailsDialog
           isOpen={openDialog}
           setUsers={setUsers}

@@ -16,6 +16,7 @@
 /* HERO PROFILE HOVER */
 .hero-profile-base-tooltip {
     position: relative;
+    height: 13.5rem;
 }
 
 .info-frame-tooltip {
@@ -49,7 +50,7 @@
     font-family: 'Courier New', Courier, monospace;
     font-size: 20pt;
     right: 0;
-    bottom: -3.25rem;
+    bottom: 0rem;
 }
 
 .hero-id-tooltip {

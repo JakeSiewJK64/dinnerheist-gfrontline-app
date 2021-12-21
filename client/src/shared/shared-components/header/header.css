@@ -1,7 +1,6 @@
 .logo-config {
-    padding: 5px;
+    margin: 10px;
     height: auto;
-    filter: invert(1)
 }
 
 .logo {
@@ -11,6 +10,11 @@
 
 .logo:hover {
     color: black;
+}
+
+.header-buttons Button {
+    border-color: #fff;
+    color:#fff
 }
 
 .role-badge {
