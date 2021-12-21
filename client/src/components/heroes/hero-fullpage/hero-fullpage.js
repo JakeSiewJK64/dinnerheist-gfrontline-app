@@ -33,6 +33,7 @@ import {
   mdiChartBoxOutline,
   mdiText,
   mdiInformation,
+  mdiEmoticonHappyOutline,
 } from "@mdi/js";
 
 import Barcode from "react-barcode";
@@ -501,14 +502,29 @@ const HeroFullPage = (props) => {
               />
             </Flex>
             {/* Gun Description */}
-            <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
-              <Flex row gap={5}>
-                <Icon path={mdiText} size={1} />
-                <strong>{hero.hero_name} Background</strong>
-              </Flex>
-            </div>
-            <Flex row gap={10} className="w-100">
-              <div>{hero.description}</div>
+            <Flex column>
+              <div>
+                <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
+                  <Flex row gap={5}>
+                    <Icon path={mdiText} size={1} />
+                    <strong>{hero.hero_name} Background</strong>
+                  </Flex>
+                </div>
+                <Flex row gap={10} className="w-100">
+                  <div>{hero.description}</div>
+                </Flex>
+              </div>
+              <div>
+                <div className="hero-dialog-header w-100 my-3 p-2 rounded-pill">
+                  <Flex row gap={5}>
+                    <Icon path={mdiEmoticonHappyOutline} size={1} />
+                    <strong>Personality</strong>
+                  </Flex>
+                </div>
+                <Flex row gap={10} className="w-100">
+                  <div>{hero.personality}</div>
+                </Flex>
+              </div>
             </Flex>
           </Flex>
         </Flex>
