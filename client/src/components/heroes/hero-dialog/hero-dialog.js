@@ -95,8 +95,8 @@ const HeroDetailsDialog = () => {
           </h3>
           <Barcode
             value={
-              window.location.href +
-              "/" +
+              window.location.origin +
+              "/hero/" +
               hero.hero_id
             }
             width={0.5}
@@ -141,7 +141,7 @@ const HeroDetailsDialog = () => {
             </div>
             <div className="mx-auto mb-2">
               <QRcode
-                value={window.location.href + "/" + hero.hero_id}
+                value={window.location.origin + "/hero/" + hero.hero_id}
                 size={100}
               />
             </div>
