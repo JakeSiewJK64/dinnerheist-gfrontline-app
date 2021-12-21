@@ -14,23 +14,17 @@ export const header_routes = [
 
 export const useStyles = makeStyles((theme) => ({
   heroStyles: {
-    "& .css-1kty9di-MuiFormLabel-root-MuiInputLabel-root": {
-      color: "#fff",
-    },
-    "& .css-1kty9di-MuiFormLabel-root-MuiInputLabel-root.Mui-focused": {
-      color: "#fff",
-    },
     "& .MuiOutlinedInput-root": {
       color: "#fff",
     },
-    "& .css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
-      borderColor: "#fff",
-    },
-    "& .css-8j6b76-MuiInputBase-root-MuiOutlinedInput-root": {
+    "& .MuiInputAdornment-root": {
       color: "#fff",
     },
-    "& .css-ittuaa-MuiInputAdornment-root": {
+    "& .MuiInputLabel-root": {
       color: "#fff",
+    },
+    "& .MuiOutlinedInput-notchedOutline": {
+      "border-color": "#fff",
     },
     "&:after": {
       borderBottomColor: "#fff",
