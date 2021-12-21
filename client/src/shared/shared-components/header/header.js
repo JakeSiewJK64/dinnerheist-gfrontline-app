@@ -20,7 +20,7 @@ export const AppHeader = ({ username, userrole, setAuth }) => {
             if (x.role === undefined) {
               return (
                 <Link
-                  className="m-2 p-2 link-style"
+                  className="mt-3 p-2 link-style"
                   to={x.route}
                   key={header_routes.indexOf(x)}
                 >
@@ -35,7 +35,7 @@ export const AppHeader = ({ username, userrole, setAuth }) => {
             ) {
               return (
                 <Link
-                  className="m-2 p-2 link-style"
+                  className="mt-3 p-2 link-style"
                   to={x.route}
                   key={header_routes.indexOf(x)}
                 >
