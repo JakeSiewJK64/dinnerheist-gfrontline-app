@@ -16,10 +16,15 @@
     top: 0;
 }
 
+.enlarge-icon-button {
+    border-radius: 100%;
+    width: 42px;
+}
+
 .hero-info {
     overflow-x: hidden;
     overflow-y: scroll;
-    height: 50rem;
+    height: 60vh;
 }
 
 .hero-dialog-header {

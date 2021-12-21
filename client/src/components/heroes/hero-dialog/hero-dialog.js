@@ -10,25 +10,26 @@ import {
   TextField,
   DialogContentText,
   InputAdornment,
+  IconButton,
+  Tooltip,
 } from "@mui/material";
 import { OpenHeroDetailsDialog } from "../../../redux/actions/heroActions/heroActions";
 import infobox_border from "../../../img/Infobox_border.png";
 import star from "../../../img/rarity_star.png";
 import "./hero-dialog.css";
 import { category_label } from "../../../shared/constants";
-
 import BadgeIcon from "@mui/icons-material/Badge";
 import ShieldIcon from "@mui/icons-material/Shield";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
-
+import { Link } from "react-router-dom";
 import QRcode from "react-qr-code";
-
 import Icon from "@mdi/react";
 import {
   mdiShoeSneaker,
+  mdiFullscreen,
   mdiFactory,
   mdiFlag,
   mdiBrush,
@@ -43,7 +44,6 @@ import {
   mdiText,
   mdiInformation,
 } from "@mdi/js";
-
 import Barcode from "react-barcode";
 
 const HeroDetailsDialog = () => {
@@ -83,7 +83,7 @@ const HeroDetailsDialog = () => {
       PaperProps={{
         style: {
           maxWidth: "100rem",
-          maxHeight: "66rem",
+          maxHeight: "100vh",
           width: "60rem",
         },
       }}
@@ -93,12 +93,21 @@ const HeroDetailsDialog = () => {
           <h3 className="my-auto">
             <strong>{hero.hero_name}</strong>
           </h3>
-          <Barcode
-            value={window.location.href + "/" + hero.hero_id}
-            width={1.8}
-            displayValue={false}
-            height={45}
-          />
+          <Flex row>
+            <Barcode
+              value={window.location.origin + "/hero/" + hero.hero_id}
+              width={0.5}
+              displayValue={false}
+              height={45}
+            />
+            <Link to={`hero/${hero.hero_id}`}>
+              <IconButton className="m-2 enlarge-icon-button">
+                <Tooltip title="more details" arrow>
+                  <Icon path={mdiFullscreen} size={1} />
+                </Tooltip>
+              </IconButton>
+            </Link>
+          </Flex>
         </Flex>
       </DialogTitle>
       <DialogContent className="hero-dialog-content">
@@ -137,7 +146,7 @@ const HeroDetailsDialog = () => {
             </div>
             <div className="mx-auto mb-2">
               <QRcode
-                value={window.location.href + "/" + hero.hero_id}
+                value={window.location.origin + "/hero/" + hero.hero_id}
                 size={100}
               />
             </div>
