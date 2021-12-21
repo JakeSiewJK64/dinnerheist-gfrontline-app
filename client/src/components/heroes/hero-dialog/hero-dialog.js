@@ -83,7 +83,7 @@ const HeroDetailsDialog = () => {
       PaperProps={{
         style: {
           maxWidth: "100rem",
-          maxHeight: "66rem",
+          maxHeight: "100vh",
           width: "60rem",
         },
       }}
@@ -94,8 +94,12 @@ const HeroDetailsDialog = () => {
             <strong>{hero.hero_name}</strong>
           </h3>
           <Barcode
-            value={window.location.href + "/" + hero.hero_id}
-            width={1.8}
+            value={
+              window.location.href +
+              "/" +
+              hero.hero_id
+            }
+            width={0.5}
             displayValue={false}
             height={45}
           />
