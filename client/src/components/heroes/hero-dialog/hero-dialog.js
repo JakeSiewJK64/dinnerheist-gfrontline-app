@@ -83,7 +83,7 @@ const HeroDetailsDialog = () => {
       PaperProps={{
         style: {
           maxWidth: "100rem",
-          maxHeight: "100vh",
+          maxHeight: "80vh",
           width: "60rem",
         },
       }}
@@ -100,7 +100,7 @@ const HeroDetailsDialog = () => {
               displayValue={false}
               height={45}
             />
-            <Link to={`hero/${hero.hero_id}`}>
+            <Link to={`hero/${hero.hero_id}`} onClick={handleClose}>
               <IconButton className="m-2 enlarge-icon-button">
                 <Tooltip title="more details" arrow>
                   <Icon path={mdiFullscreen} size={1} />
@@ -167,6 +167,7 @@ const HeroDetailsDialog = () => {
               value={hero.hero_name}
               variant="outlined"
               InputProps={{
+                readOnly: true,
                 startAdornment: (
                   <InputAdornment position="start">
                     <BadgeIcon />
@@ -190,6 +191,7 @@ const HeroDetailsDialog = () => {
                 variant="outlined"
                 value={hero.armor}
                 InputProps={{
+                  readOnly: true,
                   startAdornment: (
                     <InputAdornment position="start">
                       <ShieldIcon />
@@ -206,6 +208,7 @@ const HeroDetailsDialog = () => {
                 variant="outlined"
                 value={hero.hero_damage}
                 InputProps={{
+                  readOnly: true,
                   startAdornment: (
                     <InputAdornment position="start">
                       <LocalFireDepartmentIcon />
@@ -224,6 +227,7 @@ const HeroDetailsDialog = () => {
                 variant="outlined"
                 value={hero.crit_damage}
                 InputProps={{
+                  readOnly: true,
                   startAdornment: (
                     <InputAdornment position="start">
                       <WarningAmberIcon />
@@ -240,6 +244,7 @@ const HeroDetailsDialog = () => {
                 variant="outlined"
                 value={hero.crit_rate}
                 InputProps={{
+                  readOnly: true,
                   startAdornment: (
                     <InputAdornment position="start">
                       <AccessTimeIcon />
@@ -258,6 +263,7 @@ const HeroDetailsDialog = () => {
                 variant="outlined"
                 value={hero.health}
                 InputProps={{
+                  readOnly: true,
                   startAdornment: (
                     <InputAdornment position="start">
                       <HealthAndSafetyIcon />
@@ -274,6 +280,7 @@ const HeroDetailsDialog = () => {
                 variant="outlined"
                 value={hero.move_speed}
                 InputProps={{
+                  readOnly: true,
                   startAdornment: (
                     <InputAdornment position="start">
                       <Icon path={mdiShoeSneaker} size={1} />
@@ -292,6 +299,7 @@ const HeroDetailsDialog = () => {
                 variant="outlined"
                 value={hero.accuracy}
                 InputProps={{
+                  readOnly: true,
                   startAdornment: (
                     <InputAdornment position="start">
                       <Icon path={mdiTarget} size={1} />
@@ -308,6 +316,7 @@ const HeroDetailsDialog = () => {
                 variant="outlined"
                 value={hero.armor_penetration}
                 InputProps={{
+                  readOnly: true,
                   startAdornment: (
                     <InputAdornment position="start">
                       <img
@@ -330,6 +339,7 @@ const HeroDetailsDialog = () => {
                 variant="outlined"
                 value={hero.firerate}
                 InputProps={{
+                  readOnly: true,
                   startAdornment: (
                     <InputAdornment position="start">
                       <Icon path={mdiPistol} size={1} />
@@ -346,6 +356,7 @@ const HeroDetailsDialog = () => {
                 variant="outlined"
                 value={hero.evasion}
                 InputProps={{
+                  readOnly: true,
                   startAdornment: (
                     <InputAdornment position="start">
                       <Icon path={mdiRunFast} size={1} />
@@ -371,6 +382,7 @@ const HeroDetailsDialog = () => {
                 variant="outlined"
                 value={hero.hero_fullname}
                 InputProps={{
+                  readOnly: true,
                   startAdornment: (
                     <InputAdornment position="start">
                       <Icon path={mdiCardAccountDetails} size={1} />
@@ -387,6 +399,7 @@ const HeroDetailsDialog = () => {
                 variant="outlined"
                 value={hero.country_name}
                 InputProps={{
+                  readOnly: true,
                   startAdornment: (
                     <InputAdornment position="start">
                       <Icon path={mdiEarth} size={1} />
@@ -412,6 +425,7 @@ const HeroDetailsDialog = () => {
                 variant="outlined"
                 value={hero.faction_name}
                 InputProps={{
+                  readOnly: true,
                   startAdornment: (
                     <InputAdornment position="start">
                       <Icon path={mdiFlag} size={1} />
@@ -428,6 +442,7 @@ const HeroDetailsDialog = () => {
                 variant="outlined"
                 value={hero.revise}
                 InputProps={{
+                  readOnly: true,
                   startAdornment: (
                     <InputAdornment position="start">
                       <Icon path={mdiFactory} size={1} />
@@ -446,6 +461,7 @@ const HeroDetailsDialog = () => {
                 variant="outlined"
                 value={hero.va}
                 InputProps={{
+                  readOnly: true,
                   startAdornment: (
                     <InputAdornment position="start">
                       <Icon path={mdiMicrophone} size={1} />
@@ -462,6 +478,7 @@ const HeroDetailsDialog = () => {
                 variant="outlined"
                 value={hero.artist}
                 InputProps={{
+                  readOnly: true,
                   startAdornment: (
                     <InputAdornment position="start">
                       <Icon path={mdiBrush} title="User Profile" size={1} />
@@ -479,6 +496,7 @@ const HeroDetailsDialog = () => {
                 variant="outlined"
                 value={hero.team_name}
                 InputProps={{
+                  readOnly: true,
                   startAdornment: (
                     <InputAdornment position="start">
                       <Icon path={mdiSword} size={1} />
