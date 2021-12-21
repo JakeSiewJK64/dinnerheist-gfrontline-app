@@ -55,31 +55,53 @@ const HeaderMenu = ({ name, role, setAuth }) => {
                     </Button>
                   </Link>
                   <Divider className="m-2" />
-                  <Button
-                    variant="text"
-                    onClick={(x) => LogoutFunction({ setAuth })}
-                    className="item"
-                  >
-                    <ListItemIcon>
-                      <Logout fontSize="small" />
-                    </ListItemIcon>
-                    Logout
-                  </Button>
+                  <Link to="/authentication/login">
+                    <Button
+                      variant="text"
+                      onClick={(x) => LogoutFunction({ setAuth })}
+                      className="item"
+                    >
+                      <ListItemIcon>
+                        <Logout fontSize="small" />
+                      </ListItemIcon>
+                      Logout
+                    </Button>
+                  </Link>
                 </div>
               </Flex>
             ) : (
-              <div>loading...</div>
+              <Flex>
+                <Link to="/authentication/login">
+                  <Button variant="text" className="item">
+                    <ListItemIcon>
+                      <Logout fontSize="small" />
+                    </ListItemIcon>
+                    Login
+                  </Button>
+                </Link>
+              </Flex>
             )}
           </div>
         </div>
       ) : (
         <div></div>
       )}
-      <Tooltip title="Account settings">
-        <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
-          <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
-        </IconButton>
-      </Tooltip>
+      {name !== undefined && role !== null ? (
+        <Tooltip title="Account settings">
+          <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
+            <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+          </IconButton>
+        </Tooltip>
+      ) : (
+        <Button>
+          <Link
+            style={{ textDecoration: "none", color: "black" }}
+            to="/authentication/login"
+          >
+            Login
+          </Link>
+        </Button>
+      )}
     </div>
   );
 };

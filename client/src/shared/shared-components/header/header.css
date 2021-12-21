@@ -1,6 +1,7 @@
 .logo-config {
-    width: 5rem;
+    padding: 5px;
     height: auto;
+    filter: invert(1)
 }
 
 .logo {
@@ -28,6 +29,7 @@
     background-color: #fff;
     animation: menu-card ease .5s;
     width: 12rem !important;
+    z-index: 1;
 
 }
 
@@ -69,7 +71,7 @@
     font-size: 14px;
     padding-left: 8px;
     padding-top: 1px;
-    right: 31.5rem;
+    right: 30.5rem;
     position: absolute;
     top: 2.2rem;
 }

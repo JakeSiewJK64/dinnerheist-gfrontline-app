@@ -2,10 +2,12 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const path = require("path");
+const os = require("os");
 const PORT = process.env.PORT || 5000;
 
 const indexRouter = require("./routes/index");
 const userRouter = require("./routes/users/usersController");
+const heroesRouter = require("./routes/heroes/heroesController");
 const authRouter = require("./routes/authentication/jwtAuth");
 const logger = require("./utils/logger");
 
@@ -17,6 +19,7 @@ app.use(express.static("client/build"));
 app.use("/", indexRouter);
 app.use("/users", userRouter);
 app.use("/auth", authRouter);
+app.use("/heroes", heroesRouter);
 app.use("/api", require("./routes/index"));
 
 app.get("*", (req, res) => {
@@ -26,6 +29,6 @@ app.get("*", (req, res) => {
 app.listen(PORT, () => {
   logger.log({
     level: "info",
-    message: `Server is starting on port ${PORT}`,
+    message: `\nServer is starting on port: ${PORT}\nServer Architecture: ${os.platform}\nArchitecture: ${os.arch}`,
   });
 });
