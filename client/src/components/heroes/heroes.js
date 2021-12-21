@@ -45,7 +45,19 @@ const Heroes = () => {
           <Flex flexWrap="wrap" row gap="1rem" justifyCenter>
             {heroes.map((x) => (
               <Tooltip title={x.hero_name} arrow key={x.hero_id}>
-                <div className="hero-profile" onClick={() => handleOpen(x.hero_id)}>
+                <div
+                  className={
+                    "hero-profile border " +
+                    (x.rarity == 5
+                      ? "border-epic"
+                      : x.rarity == 4
+                      ? "border-rare"
+                      : x.rarity == 3
+                      ? "border-uncommon"
+                      : "border-common")
+                  }
+                  onClick={() => handleOpen(x.hero_id)}
+                >
                   <img
                     draggable="false"
                     src={x.image_url}

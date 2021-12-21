@@ -6,7 +6,7 @@ const cors = require("cors");
 router.get("/getAllHeroes", cors(), async (req, res) => {
   try {
     const r = await pool.query(`
-            SELECT encode(h.image_url, 'escape') AS image_url, h.hero_name, h.hero_id
+            SELECT encode(h.image_url, 'escape') AS image_url, h.hero_name, h.hero_id, h.rarity
             FROM heroes h
         `);
     const result = await r.rows;

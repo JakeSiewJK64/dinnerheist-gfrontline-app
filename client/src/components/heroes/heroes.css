@@ -4,11 +4,31 @@
     overflow: hidden;
 }
 
-.hero-profile:hover{
+.hero-profile:hover {
     cursor: pointer;
 }
 
 .hero-image {
     width: 75px;
     height: auto;
+}
+
+/* 5 stars */
+.border-epic {
+    border: 3px solid #f39c12 !important;
+}
+
+/* 4 stars */
+.border-rare {
+    border: 3px solid #2ecc71 !important;
+}
+
+/* 3 stars */
+.border-uncommon {
+    border: 3px solid #2ecc71 !important;
+}
+
+/* 2 stars */
+.border-common {
+    border: 3px solid #95a5a6 !important;
 }
