@@ -13,6 +13,61 @@
     height: auto;
 }
 
+/* HERO PROFILE HOVER */
+.hero-profile-base-tooltip {
+    position: relative;
+}
+
+.info-frame-tooltip {
+    position: absolute;
+    top: 0rem;
+    left: 0px;
+    width: 8rem;
+    height: 13.3rem;
+}
+
+.star-tooltip {
+    width: 12px;
+    height: 12px;
+}
+
+.hero-profile-image-tooltip {
+    width: 8rem;
+}
+
+.category-label-tooltip {
+    position: absolute;
+    width: 55px;
+    left: 0px;
+    top: 0px;
+    height: auto;
+}
+
+.hero-name-tooltip {
+    position: absolute;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20pt;
+    right: 0;
+    bottom: -3.25rem;
+}
+
+.hero-id-tooltip {
+    position: absolute;
+    color: #fff;
+    font-size: 1pt;
+    right: 15px;
+    top: 12rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.rarity-star-container-tooltip {
+    position: absolute;
+    left: 3.5rem;
+    width: 5rem;
+    top: -2.5px;
+}
+
 /* 5 stars */
 .border-epic {
     border: 3px solid #f39c12 !important;
