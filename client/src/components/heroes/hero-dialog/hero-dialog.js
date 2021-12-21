@@ -144,11 +144,12 @@ const HeroDetailsDialog = () => {
                 className="category-label"
               />
             </div>
-            <div className="mx-auto mb-2">
+            <div className="mx-auto mb-2 barcode-container text-center">
               <QRcode
                 value={window.location.origin + "/hero/" + hero.hero_id}
                 size={100}
               />
+              <p>Scan me!</p>
             </div>
           </Flex>
           <Flex column className="w-100 hero-info">
