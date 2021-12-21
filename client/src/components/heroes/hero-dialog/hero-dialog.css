@@ -17,7 +17,8 @@
 }
 
 .hero-info {
-    overflow-x: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
     height: 50rem;
 }
 
