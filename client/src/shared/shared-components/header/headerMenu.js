@@ -30,9 +30,9 @@ const HeaderMenu = ({ name, role, setAuth }) => {
     <div className="mt-3">
       {achorEl ? (
         <div open={open} onClose={handleClose} onClick={handleClose}>
-          <div className="card-body menu-card m-2 p-2 shadow">
+          <div className="card-body menu-card m-2 p-2 shadow rounded">
             {name !== undefined && role !== undefined ? (
-              <Flex column className="m-auto" alignItemsCenter>
+              <Flex column className="mx-auto mt-4" alignItemsCenter>
                 <Avatar />
                 <p>{name}</p>
                 <span className="rounded-pill text-white p-2 bg-primary m-auto">

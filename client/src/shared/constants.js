@@ -17,7 +17,7 @@ export const header_routes = [
   {
     id: 3,
     title: "Manage Dolls",
-    route: "/add-hero",
+    route: "/manage-hero",
     role: "administrator",
   },
 ];
