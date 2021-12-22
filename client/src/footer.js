@@ -1,5 +1,5 @@
 import { Icon } from "@mdi/react";
-import { mdiAbacus, mdiDiscord, mdiGithub } from "@mdi/js";
+import { mdiDiscord, mdiGithub } from "@mdi/js";
 import Flex from "@react-css/flex";
 import "./App.css";
 
