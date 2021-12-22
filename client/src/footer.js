@@ -22,10 +22,6 @@ function Footer() {
           </Flex>
           <Flex column>
             <Flex row className="link">
-              <Icon path={mdiDiscord} font={1} />
-              <a href="#">Discord</a>
-            </Flex>
-            <Flex row className="link">
               <Icon path={mdiGithub} font={1} />
               <a href="#">Github</a>
             </Flex>
@@ -39,10 +35,6 @@ function Footer() {
             <Flex row className="link">
               <Icon path={mdiDiscord} font={1} />
               <a href="#">Discord</a>
-            </Flex>
-            <Flex row className="link">
-              <Icon path={mdiGithub} font={1} />
-              <a href="#">Github</a>
             </Flex>
           </Flex>
         </div>
