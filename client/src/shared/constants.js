@@ -1,4 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
+import PersonAdd from "@mui/icons-material/PersonAdd";
+import Settings from "@mui/icons-material/Settings";
 
 export const header_routes = [
   {
@@ -9,6 +11,19 @@ export const header_routes = [
   {
     title: "Guns",
     route: "/heroes",
+  },
+];
+
+export const headerProfileMenuOptions = [
+  {
+    url: "profile",
+    title: "PROFILE",
+    icon: <PersonAdd />,
+  },
+  {
+    url: "settings",
+    title: "SETTINGS",
+    icon: <Settings />,
   },
 ];
 

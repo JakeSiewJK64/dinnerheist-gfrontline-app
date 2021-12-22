@@ -24,7 +24,7 @@ const UserProfile = () => {
 
   if (user) {
     return (
-      <div className="w-50 m-auto card">
+      <div className="w-50 mt-5 m-auto card">
         <Flex column className="m-auto p-3">
           <h2>My Profile</h2>
           <img
@@ -38,16 +38,51 @@ const UserProfile = () => {
         <div className="card-body">
           <Flex column gap={10}>
             <Flex row gap={10}>
-              <TextField label="Username" fullWidth value={user.user_name} />
-              <TextField label="Email" fullWidth value={user.user_email} />
+              <TextField
+                inputProps={{
+                  readOnly: true,
+                }}
+                label="Username"
+                fullWidth
+                value={user.user_name}
+              />
+              <TextField
+                inputProps={{
+                  readOnly: true,
+                }}
+                label="Email"
+                fullWidth
+                value={user.user_email}
+              />
             </Flex>
             <Flex row gap={10}>
-              <TextField label="First Name" fullWidth value={user.first_name} />
-              <TextField label="Last Name" fullWidth value={user.last_name} />
+              <TextField
+                inputProps={{
+                  readOnly: true,
+                }}
+                label="First Name"
+                fullWidth
+                value={user.first_name}
+              />
+              <TextField
+                inputProps={{
+                  readOnly: true,
+                }}
+                label="Last Name"
+                fullWidth
+                value={user.last_name}
+              />
             </Flex>
           </Flex>
           <Flex row gap={10} className="mt-3">
-            <TextField label="My Role" fullWidth value={user.role_name} />
+            <TextField
+              inputProps={{
+                readOnly: true,
+              }}
+              label="My Role"
+              fullWidth
+              value={user.role_name}
+            />
           </Flex>
         </div>
       </div>

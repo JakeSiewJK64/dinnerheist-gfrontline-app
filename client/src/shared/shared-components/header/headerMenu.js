@@ -1,17 +1,19 @@
 import Flex from "@react-css/flex";
 import Avatar from "@mui/material/Avatar";
+import PersonAdd from "@mui/icons-material/PersonAdd";
+import Settings from "@mui/icons-material/Settings";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
 import "./header.css";
 import { useState } from "react";
 import Logout from "@mui/icons-material/Logout";
 import LogoutFunction from "../../../shared/shared-components/logout/logout";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
+
+import { headerProfileMenuOptions } from "../../constants";
 
 const HeaderMenu = ({ name, role, setAuth }) => {
   const [achorEl, setAnchorEl] = useState(false);
@@ -38,22 +40,16 @@ const HeaderMenu = ({ name, role, setAuth }) => {
                 </span>
                 <div className="mt-3">
                   <Divider />
-                  <Link to="profile">
-                    <Button variant="text" className="item">
-                      <ListItemIcon>
-                        <PersonAdd fontSize="small" />
-                      </ListItemIcon>
-                      Profile
-                    </Button>
-                  </Link>
-                  <Link to="settings">
-                    <Button variant="text" className="item">
-                      <ListItemIcon>
-                        <Settings fontSize="small" />
-                      </ListItemIcon>
-                      Settings
-                    </Button>
-                  </Link>
+                  {headerProfileMenuOptions.map((a) => {
+                    return (
+                      <Link to={a.url}>
+                        <Button variant="text" className="item">
+                          <ListItemIcon>{a.icon}</ListItemIcon>
+                          {a.title}
+                        </Button>
+                      </Link>
+                    );
+                  })}
                   <Divider className="m-2" />
                   <Link to="/authentication/login">
                     <Button
