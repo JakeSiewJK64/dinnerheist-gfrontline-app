@@ -5,7 +5,7 @@ import "./App.css";
 
 function Footer() {
   return (
-    <div class="footer w-100">
+    <div className="footer w-100">
       <div className="grid-container">
         <div className="item1">
           <Flex row>

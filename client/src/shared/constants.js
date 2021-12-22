@@ -1,16 +1,25 @@
 import { makeStyles } from "@material-ui/core/styles";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
+import AddIcon from "@mui/icons-material/Add";
 
 export const header_routes = [
   {
+    id: 1,
     title: "Users",
     route: "/users",
     role: "administrator",
   },
   {
+    id: 2,
     title: "Guns",
     route: "/heroes",
+  },
+  {
+    id: 3,
+    title: "Add Doll",
+    route: "/add-hero",
+    role: "administrator",
   },
 ];
 
@@ -27,7 +36,7 @@ export const headerProfileMenuOptions = [
   },
 ];
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles(() => ({
   heroStyles: {
     "& .MuiOutlinedInput-root": {
       color: "#fff",

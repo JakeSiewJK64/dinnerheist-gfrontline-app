@@ -27,7 +27,7 @@ const HeaderMenu = ({ name, role, setAuth }) => {
   };
 
   return (
-    <div className="mt-3 w-100">
+    <div className="mt-3">
       {achorEl ? (
         <div open={open} onClose={handleClose} onClick={handleClose}>
           <div className="card-body menu-card m-2 p-2 shadow">

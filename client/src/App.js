@@ -19,6 +19,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { AppHeader } from "./shared/shared-components/header/header";
 import LoadingSpinner from "./shared/shared-components/loadingSpinner/loadingSpinner";
 import Footer from "./footer";
+import AddHero from "./components/heroes/add-hero/add-hero";
 
 toast.configure();
 
@@ -159,6 +160,23 @@ function App() {
               )
             }
           />
+          <Route exact path="/heroes" render={(props) => <Heroes />} />
+          <Route
+            exact
+            path="/hero/:id"
+            render={(props) => <HeroFullPage {...props} />}
+          />
+          <Route
+            exact
+            path="/add-hero"
+            render={(props) =>
+              isAuthenticated ? (
+                <AddHero {...props} setAuth={setAuth} username={name} />
+              ) : (
+                <Redirect to="/authentication/login" />
+              )
+            }
+          />
           <Route
             exact
             path="/"
@@ -169,12 +187,6 @@ function App() {
                 <Redirect to="/authentication/login" />
               )
             }
-          />
-          <Route exact path="/heroes" render={(props) => <Heroes />} />
-          <Route
-            exact
-            path="/hero/:id"
-            render={(props) => <HeroFullPage {...props} />}
           />
           <Route
             exact
