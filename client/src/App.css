@@ -41,3 +41,51 @@
 .link-style {
   text-decoration: none;
 }
+
+.footer {
+  position: fixed;
+  left: 0;
+  min-height: 7rem;
+  bottom: 0;
+  width: 100%;
+  background-color: #222f3e;
+  color: white;
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.grid-container>div {
+  text-align: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding: 20px 0;
+  font-size: 15px;
+}
+
+.grid-container h3 {
+  border-left: #61dafb 3px solid;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  padding: 10px;
+}
+
+.grid-container a {
+  padding-top: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+.grid-container svg {
+  width: 2rem;
+}
+
+.item1 {
+  grid-column-start: 1;
+  grid-column-end: 1;
+}

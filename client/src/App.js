@@ -1,7 +1,6 @@
 import "./App.css";
 import React, { Fragment, useState, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-
 // components
 import Customers from "./components/customers/customers";
 import Pokemon from "./components/pokemon/pokemon";
@@ -19,6 +18,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { AppHeader } from "./shared/shared-components/header/header";
 import LoadingSpinner from "./shared/shared-components/loadingSpinner/loadingSpinner";
+import Footer from "./footer";
 
 toast.configure();
 
@@ -184,8 +184,8 @@ function App() {
           />
         </Switch>
       </header>
+      <Footer />
     </Fragment>
   );
 }
-
 export default App;
