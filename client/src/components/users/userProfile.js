@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { TextField } from "@mui/material";
 import Flex from "@react-css/flex";
 import profile from "../../img/empty-profile.png";
+import LoadingSpinner from "../../shared/shared-components/loadingSpinner/loadingSpinner";
 const UserProfile = () => {
   const [user, setUser] = useState(null);
 
@@ -88,7 +89,7 @@ const UserProfile = () => {
       </div>
     );
   } else {
-    return <div>loading...</div>;
+    return <LoadingSpinner />;
   }
 };
 
