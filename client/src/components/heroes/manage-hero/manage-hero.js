@@ -54,7 +54,7 @@ const AddHero = function () {
   return (
     <div className="card mt-5 w-75 mx-auto">
       <div className="card-body">
-        <h2>Add Doll</h2>
+        <h2>Manage Dolls</h2>
         <HeroTable columns={columns} data={dolls} />
       </div>
     </div>

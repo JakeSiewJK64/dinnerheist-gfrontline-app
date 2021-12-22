@@ -10,11 +10,12 @@ import React, { useState } from "react";
 import MaUTable from "@material-ui/core/Table";
 import { usePagination, useTable } from "react-table";
 import TablePagination from "@material-ui/core/TablePagination/TablePagination";
+import AddHeroDialog from "../add-hero-dialog/add-hero-dialog";
 
 const HeroTable = function ({ columns, data }) {
   const [paginatorPage, setPaginatorPage] = useState(0);
   const [openDialog, setOpenDialog] = useState(false);
-  const [user, setSelectedUser] = useState(null);
+  const [hero, setSelectedHero] = useState(null);
   const [rowNumberSelection] = useState([2, 5, 10, 15, 20, 50, 100]);
   const {
     getTableProps,
@@ -46,24 +47,29 @@ const HeroTable = function ({ columns, data }) {
     setPageSize(Number(event.target.value));
   };
 
-  const openDialogFunction = (userchoice) => {
+  const openDialogFunction = (herochoice) => {
     setOpenDialog(true);
-    setSelectedUser({
-      image_url: userchoice.row.original.image_url,
-      user_id: userchoice.row.original.user_id,
-      user_name: userchoice.row.original.user_name,
-      user_email: userchoice.row.original.user_email,
-      user_firstname: userchoice.row.original.first_name,
-      user_lastname: userchoice.row.original.last_name,
-      user_role: userchoice.row.original.role_name,
+    setSelectedHero({
+      image_url: herochoice.row.original.image_url,
+      hero_id: herochoice.row.original.hero_id,
+      hero_name: herochoice.row.original.hero_name,
+      hero_email: herochoice.row.original.hero_email,
+      hero_firstname: herochoice.row.original.first_name,
+      hero_lastname: herochoice.row.original.last_name,
+      hero_role: herochoice.row.original.role_name,
     });
   };
 
   return (
     <div>
+      <AddHeroDialog
+        openHeroDialog={openDialog}
+        setOpenDialog={setOpenDialog}
+        hero={hero}
+      />
       <TableContainer>
         <MaUTable {...getTableProps()}>
-          <TableHead className="user-table-head">
+          <TableHead className="hero-table-head">
             {headerGroups.map((headerGroup) => (
               <TableRow {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
@@ -97,7 +103,7 @@ const HeroTable = function ({ columns, data }) {
                               {cell.render("Cell")}
                             </p>
                           ) : (
-                            // For Normal Users
+                            // For Normal heros
                             <p className="badge badge-pill bg-warning text-white">
                               {cell.render("Cell")}
                             </p>
