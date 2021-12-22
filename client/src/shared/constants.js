@@ -1,7 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
-import AddIcon from "@mui/icons-material/Add";
 
 export const header_routes = [
   {
@@ -17,7 +16,7 @@ export const header_routes = [
   },
   {
     id: 3,
-    title: "Add Doll",
+    title: "Manage Dolls",
     route: "/add-hero",
     role: "administrator",
   },
