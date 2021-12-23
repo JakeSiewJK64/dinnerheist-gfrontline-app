@@ -90,10 +90,10 @@ const HeroFullPage = (props) => {
               className="hero-profile-base"
               style={{ border: "white solid 2px" }}
             >
-              <img src={hero.image_url} alt="" draggable="false" />
+              <img src={hero.image_url} alt="image" draggable="false" />
               <img
                 src={infobox_border}
-                alt=""
+                alt="image"
                 className="info-frame"
                 draggable="false"
               />
@@ -106,7 +106,7 @@ const HeroFullPage = (props) => {
                     <img
                       src={star}
                       key={i}
-                      alt=""
+                      alt="image"
                       className="star"
                       draggable="false"
                     />
@@ -136,7 +136,7 @@ const HeroFullPage = (props) => {
           <Flex column className="w-100 hero-fullpage-gun-info-container">
             <img
               src={hero.faction_image_url}
-              alt=""
+              alt="image"
               draggable="false"
               className="faction_image"
             />

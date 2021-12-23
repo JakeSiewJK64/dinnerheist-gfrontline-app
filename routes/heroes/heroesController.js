@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../../db");
 const cors = require("cors");
+const authorize = require("../authentication/authorize");
 
 router.get("/getAllHeroes", cors(), async (req, res) => {
   try {
@@ -26,6 +27,37 @@ router.get("/getFactionTeam", cors(), async (req, res) => {
     "SELECT t.team_id, t.team_name, f.faction_name FROM team t JOIN faction f on t.faction_id = f.faction_id;"
   );
   res.json(response.rows);
+});
+
+router.post("/upsertHero", authorize, async (req, res) => {
+  console.log(req.body);
+  const {
+    image_url,
+    hero_name,
+    hero_id,
+    manufacturer,
+    hero_damage,
+    va,
+    personality,
+    revise,
+    evasion,
+    armor,
+    armor_penetration,
+    crit_rate,
+    crit_damage,
+    accuracy,
+    move_speed,
+    health,
+    firerate,
+    hero_fullname,
+    rarity,
+    artist,
+    description,
+    category_name,
+    country_name,
+    team_name,
+    faction_name,
+  } = req.body;
 });
 
 router.get("/getHeroById/:id", cors(), async (req, res) => {

@@ -12,10 +12,10 @@ import {
   TextareaAutosize,
   Divider,
 } from "@mui/material";
+import { toast } from "react-toastify";
 import { rarity_select } from "../../../shared/constants";
 import { useRef, useEffect, useState } from "react";
 import { useFormik } from "formik";
-import EditIcon from "@mui/icons-material/Edit";
 import empty_profile from "../../../img/empty-profile.png";
 import Flex from "@react-css/flex";
 
@@ -93,10 +93,28 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
         description: "",
         personality: "",
       },
-      onSubmit: (val) => {
-        console.log(val);
+      onSubmit: async (val) => {
+        const res = await fetch("/heroes/upsertHero", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+            jwt_token: localStorage.token,
+          },
+          body: JSON.stringify(val),
+        });
+        const p = await res.json();
+        if (res.status === 500) {
+          toast.error(p.message);
+        } else {
+          toast.success("Success!");
+        }
       },
     });
+  };
+
+  const handleImageReset = () => {
+    formik.values.image_url = "";
+    formik.setFieldValue("image_url", "");
   };
 
   GetImageRef();
@@ -127,6 +145,7 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
       reader.onload = (x) => {
         var file = x.target.result.toString();
         formik.values.image_url = file;
+        formik.setFieldValue("image_url", file);
       };
     };
 
@@ -159,17 +178,36 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
           </DialogTitle>
           <DialogContent>
             <Flex column gap={10} className="mt-2">
-              <Flex alignItemsCenter>
-                <EditIcon fontSize="medium" className="edit-icon" />
+              <Flex alignItemsCenter column>
                 <img
-                  src={empty_profile}
+                  src={
+                    formik.values.image_url !== null &&
+                    formik.values.image_url.length > 0
+                      ? formik.values.image_url
+                      : empty_profile
+                  }
                   alt="profile"
                   draggable={false}
                   onClick={onImageUploadClick}
-                  style={{ width: "5rem", zIndex: 2 }}
+                  style={{ width: "5rem", zIndex: 2, height: "5rem" }}
                   className="m-3 rounded-circle m-auto profile-circle"
                 />
+                <Button type="reset" onClick={handleImageReset}>
+                  Remove Image
+                </Button>
               </Flex>
+              {formik.values.image_url.length > 0 ? (
+                <div></div>
+              ) : (
+                <TextField
+                  fullWidth
+                  label="Image URL"
+                  type="text"
+                  name="image_url"
+                  onChange={formik.handleChange}
+                  values={formik.values.image_url}
+                />
+              )}
               <TextField
                 fullWidth
                 label="Hero Name"
@@ -393,7 +431,6 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
                   height: "5rem",
                 }}
                 placeholder="Doll Description"
-                fullWidth
               />
               <h3>Doll Personality</h3>
               <TextareaAutosize
@@ -404,7 +441,6 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
                   height: "5rem",
                 }}
                 placeholder="Doll Personality"
-                fullWidth
               />
             </Flex>
           </DialogContent>

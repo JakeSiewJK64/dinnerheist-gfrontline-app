@@ -117,11 +117,11 @@ const Heroes = () => {
                   <div
                     className={
                       "hero-profile border " +
-                      (x.rarity == 5
+                      (x.rarity === 5
                         ? "border-epic"
-                        : x.rarity == 4
+                        : x.rarity === 4
                         ? "border-rare"
-                        : x.rarity == 3
+                        : x.rarity === 3
                         ? "border-uncommon"
                         : "border-common")
                     }
