@@ -1,0 +1,10 @@
+.edit-icon {
+    z-index: 1;
+    position: absolute;
+    left: 29.5rem;
+}
+
+.profile-circle:hover {
+    opacity: .6;
+    cursor: pointer;
+}

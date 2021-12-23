@@ -1,18 +1,41 @@
 import { makeStyles } from "@material-ui/core/styles";
+import PersonAdd from "@mui/icons-material/PersonAdd";
+import Settings from "@mui/icons-material/Settings";
 
 export const header_routes = [
   {
+    id: 1,
     title: "Users",
     route: "/users",
     role: "administrator",
   },
   {
+    id: 2,
     title: "Guns",
     route: "/heroes",
   },
+  {
+    id: 3,
+    title: "Manage Dolls",
+    route: "/manage-hero",
+    role: "administrator",
+  },
 ];
 
-export const useStyles = makeStyles((theme) => ({
+export const headerProfileMenuOptions = [
+  {
+    url: "profile",
+    title: "PROFILE",
+    icon: <PersonAdd />,
+  },
+  {
+    url: "settings",
+    title: "SETTINGS",
+    icon: <Settings />,
+  },
+];
+
+export const useStyles = makeStyles(() => ({
   heroStyles: {
     "& .MuiOutlinedInput-root": {
       color: "#fff",
@@ -31,6 +54,25 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
+export const rarity_select = [
+  {
+    rarity: 2,
+    title: "COMMON"
+  },
+  {
+    rarity: 3,
+    title: "RARE"
+  },
+  {
+    rarity: 4,
+    title: "EPOCH"
+  },
+  {
+    rarity: 5,
+    title: "LEGENDARY"
+  },
+]
 
 export const category_label = [
   {

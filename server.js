@@ -10,9 +10,15 @@ const userRouter = require("./routes/users/usersController");
 const heroesRouter = require("./routes/heroes/heroesController");
 const authRouter = require("./routes/authentication/jwtAuth");
 const logger = require("./utils/logger");
+const bodyParser = require("body-parser");
 
 //middleware
 app.use(cors());
+app.use(
+  express.json({
+    limit: "100mb",
+  })
+);
 app.use(express.json());
 app.use(express.static("client/build"));
 
