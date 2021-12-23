@@ -55,6 +55,25 @@ export const useStyles = makeStyles(() => ({
   },
 }));
 
+export const rarity_select = [
+  {
+    rarity: 2,
+    title: "COMMON"
+  },
+  {
+    rarity: 3,
+    title: "RARE"
+  },
+  {
+    rarity: 4,
+    title: "EPOCH"
+  },
+  {
+    rarity: 5,
+    title: "LEGENDARY"
+  },
+]
+
 export const category_label = [
   {
     id: 1,

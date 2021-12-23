@@ -16,6 +16,11 @@ router.get("/getAllHeroes", cors(), async (req, res) => {
   }
 });
 
+router.get("/getCountries", cors(), async (req, res) => {
+  const response = await pool.query("SELECT * FROM countries");
+  res.json(response.rows);
+});
+
 router.get("/getHeroById/:id", cors(), async (req, res) => {
   try {
     const id = req.params.id;

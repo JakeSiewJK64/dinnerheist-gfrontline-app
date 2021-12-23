@@ -11,6 +11,7 @@ import {
   MenuItem,
   DialogTitle,
 } from "@mui/material";
+import { rarity_select } from "../../../shared/constants";
 import { useRef, useEffect, useState } from "react";
 import { useFormik } from "formik";
 import EditIcon from "@mui/icons-material/Edit";
@@ -18,13 +19,40 @@ import empty_profile from "../../../img/empty-profile.png";
 import Flex from "@react-css/flex";
 
 export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
+  const [countries, setCountries] = useState(null);
+  const [doll, setDoll] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   var imageRef;
-
   var formik;
+
+  const GetExistingHeroes = async () => {
+    if (hero !== null && isLoading) {
+      const res = await fetch("/heroes/getHeroById/" + hero.hero_id, {
+        method: "GET",
+      });
+      const rows = await res.json();
+      setDoll(rows);
+      setIsLoading(false);
+    }
+  };
+
+  const GetCountries = async () => {
+    const res = await fetch("/heroes/getCountries", {
+      method: "GET",
+    });
+    const rows = await res.json();
+    setCountries(rows);
+  };
 
   const GetImageRef = () => {
     imageRef = useRef();
   };
+
+  const handleClose = () => {
+    setOpenDialog(false);
+    setDoll(null);
+    setIsLoading(true);
+  }
 
   const GetFormik = () => {
     formik = useFormik({
@@ -43,6 +71,8 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
         armor_penetration: 0,
         accuracy: 0,
         firerate: 0,
+        manufacturer: "",
+        country: "",
       },
       onSubmit: (val) => {
         console.log(val);
@@ -50,9 +80,18 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
     });
   };
 
-  if (openHeroDialog) {
-    GetImageRef();
+  GetImageRef();
+  GetFormik();
 
+  if (openHeroDialog) {
+    GetExistingHeroes();
+  }
+
+  useEffect(() => {
+    GetCountries();
+  }, [!isLoading]);
+
+  if (openHeroDialog && countries !== undefined && countries !== null) {
     const onImageUploadClick = () => {
       imageRef.current.click();
     };
@@ -66,7 +105,7 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
       };
     };
 
-    GetFormik();
+    console.log(doll);
 
     return (
       <Dialog
@@ -134,16 +173,13 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
                 onChange={formik.handleChange}
                 name="rarity"
               >
-                {[...Array(5)].map((x, i) => {
-                  return i < 1 ? (
-                    <div key={i}></div>
-                  ) : (
-                    <MenuItem value={i + 1} key={i}>
-                      {i + 1}
-                    </MenuItem>
-                  );
-                })}
+                {rarity_select.map((x) => (
+                  <MenuItem value={x.rarity} key={x.rarity}>
+                    [{x.rarity} stars] {x.title}
+                  </MenuItem>
+                ))}
               </Select>
+              <h2>Gun Stats</h2>
               <Flex row gap={10}>
                 <TextField
                   fullWidth
@@ -232,14 +268,39 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
                   value={formik.values.firerate}
                 />
               </Flex>
+              <h2>Gun Information</h2>
+              <Flex column gap={10}>
+                <TextField
+                  fullWidth
+                  label="Manufacturer"
+                  type="text"
+                  name="manufacturer"
+                  onChange={formik.handleChange}
+                  value={formik.values.manufacturer}
+                />
+                <InputLabel title="Origin Country" id="country">
+                  Origin Country
+                </InputLabel>
+                <Select
+                  value={formik.values.country}
+                  label="Country"
+                  labelId="country"
+                  onChange={formik.handleChange}
+                  name="country"
+                >
+                  {countries.map((x) => (
+                    <MenuItem value={x.country_id} key={x.country_id}>
+                      {x.country_name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </Flex>
             </Flex>
           </DialogContent>
           <DialogActions>
             <Button
               variant="outlined"
-              onClick={() => {
-                setOpenDialog(false);
-              }}
+              onClick={handleClose}
             >
               CLOSE
             </Button>
