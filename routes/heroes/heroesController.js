@@ -31,33 +31,69 @@ router.get("/getFactionTeam", cors(), async (req, res) => {
 
 router.post("/upsertHero", authorize, async (req, res) => {
   console.log(req.body);
-  const {
-    image_url,
-    hero_name,
-    hero_id,
-    manufacturer,
-    hero_damage,
-    va,
-    personality,
-    revise,
-    evasion,
-    armor,
-    armor_penetration,
-    crit_rate,
-    crit_damage,
-    accuracy,
-    move_speed,
-    health,
-    firerate,
-    hero_fullname,
-    rarity,
-    artist,
-    description,
-    category_name,
-    country_name,
-    team_name,
-    faction_name,
-  } = req.body;
+  const { ...props } = req.body;
+
+  console.log(props);
+
+  try {
+    const response = await pool.query(
+      `INSERT INTO heroes (
+        hero_name,
+        hero_damage,
+        manufacturer,
+        origin_country,
+        artist,
+        va,
+        revise,
+        image_url,
+        evasion,
+        armor,
+        armor_penetration,
+        crit_rate,
+        crit_damage, accuracy, move_speed, health, firerate, rarity, category, description, team_id, hero_fullname, personality) VALUES 
+        (
+          $1, $2, $3, $4, $5, $6, $7, $8, $9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23
+          );`,
+      [
+        props.hero_name,
+        props.damage,
+        props.manufacturer,
+        props.country,
+        props.artist,
+        props.va,
+        props.revise,
+        props.image_url,
+        props.evasion,
+        props.armor,
+        props.armor_penetration,
+        props.crit_rate,
+        props.crit_damage,
+        props.accuracy,
+        props.move_speed,
+        props.health,
+        props.firerate,
+        props.rarity,
+        props.category,
+        props.description,
+        props.team_id,
+        props.hero_fullname,
+        props.personality,
+      ]
+    );
+    return res.status(200).send({
+      msg: response.rows[0],
+    });
+  } catch (error) {}
+});
+
+router.get("/getCategories", cors(), async (req, res) => {
+  try {
+    const response = await pool.query("SELECT * FROM category");
+    const rows = await response.rows;
+    res.json(rows);
+  } catch (error) {
+    res.status(500).send(error);
+  }
 });
 
 router.get("/getHeroById/:id", cors(), async (req, res) => {

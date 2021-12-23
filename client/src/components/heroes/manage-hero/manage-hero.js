@@ -1,5 +1,8 @@
+import { Button } from "@mui/material";
+import Flex from "@react-css/flex";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../../../shared/shared-components/loadingSpinner/loadingSpinner";
+import AddHeroDialog from "../add-hero-dialog/add-hero-dialog";
 import HeroTable from "../hero-table/hero-table";
 
 const AddHero = function () {
@@ -53,8 +56,23 @@ const AddHero = function () {
 
   return (
     <div className="card mt-5 w-75 mx-auto">
+      <AddHeroDialog
+        hero={null}
+        openHeroDialog={openDialog}
+        setOpenDialog={setOpenDialog}
+      />
       <div className="card-body">
-        <h2>Manage Dolls</h2>
+        <Flex justifySpaceBetween row>
+          <h2>Manage Dolls</h2>
+          <Button
+            variant="outlined"
+            onClick={() => {
+              setOpenDialog(true);
+            }}
+          >
+            Add
+          </Button>
+        </Flex>
         <HeroTable columns={columns} data={dolls} />
       </div>
     </div>

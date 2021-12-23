@@ -21,6 +21,7 @@ import Flex from "@react-css/flex";
 
 export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
   const [countries, setCountries] = useState(null);
+  const [categories, setCategories] = useState(null);
   const [doll, setDoll] = useState(null);
   const [teams, setTeams] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -34,18 +35,16 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
       });
       const rows = await res.json();
       setTeams(rows);
+      setIsLoading(false);
     }
   };
 
   const GetExistingHeroes = async () => {
-    if (hero !== null && isLoading) {
-      const res = await fetch("/heroes/getHeroById/" + hero.hero_id, {
-        method: "GET",
-      });
-      const rows = await res.json();
-      setDoll(rows);
-      setIsLoading(false);
-    }
+    const res = await fetch("/heroes/getHeroById/" + hero.hero_id, {
+      method: "GET",
+    });
+    const rows = await res.json();
+    setDoll(rows);
   };
 
   const GetCountries = async () => {
@@ -54,6 +53,14 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
     });
     const rows = await res.json();
     setCountries(rows);
+  };
+
+  const GetCategories = async () => {
+    const res = await fetch("/heroes/getCategories", {
+      method: "GET",
+    });
+    const rows = await res.json();
+    setCategories(rows);
   };
 
   const GetImageRef = () => {
@@ -67,13 +74,51 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
     setIsLoading(true);
   };
 
+  const submitHero = async (val) => {
+    const res = await fetch("/heroes/upsertHero", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        jwt_token: localStorage.token,
+      },
+      body: JSON.stringify(val),
+    });
+    const p = await res.json();
+    if (res.status === 500) {
+      toast.error(p.message);
+    } else {
+      toast.success("Success!");
+      setOpenDialog(false);
+    }
+  };
+
+  const GetExistingFormik = (val) => {
+    formik = useFormik({
+      initialValues: {
+        image_url: val.image_url,
+        hero_name: val.hero_name,
+        hero_fullname: val.hero_fullname,
+        // health: val.health,
+        health: 200,
+        rarity: val.rarity,
+      },
+      onSubmit: async (val) => {
+        submitHero(val);
+      },
+    });
+    setIsLoading(false);
+    console.log("existing");
+  };
+
   const GetFormik = () => {
+    console.log("new");
     formik = useFormik({
       initialValues: {
         image_url: "",
         hero_name: "",
         rarity: 2,
         hero_fullname: "",
+        category: 1,
         health: 0,
         armor: 0,
         crit_damage: 0,
@@ -94,20 +139,7 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
         personality: "",
       },
       onSubmit: async (val) => {
-        const res = await fetch("/heroes/upsertHero", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-            jwt_token: localStorage.token,
-          },
-          body: JSON.stringify(val),
-        });
-        const p = await res.json();
-        if (res.status === 500) {
-          toast.error(p.message);
-        } else {
-          toast.success("Success!");
-        }
+        submitHero(val);
       },
     });
   };
@@ -118,15 +150,23 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
   };
 
   GetImageRef();
-  GetFormik();
 
   if (openHeroDialog) {
     GetTeams();
+  }
+
+  if (hero !== null) {
     GetExistingHeroes();
+    if (doll !== undefined && doll !== null) {
+      GetExistingFormik(doll);
+    }
+  } else {
+    GetFormik();
   }
 
   useEffect(() => {
     GetCountries();
+    GetCategories();
   }, [!isLoading]);
 
   if (
@@ -173,7 +213,7 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
         <form onSubmit={formik.handleSubmit}>
           <DialogTitle>
             <div>
-              <h3>Add Hero</h3>
+              <h3>{hero !== null ? "Edit" : "Add"} Hero</h3>
             </div>
           </DialogTitle>
           <DialogContent>
@@ -237,6 +277,22 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
                 {rarity_select.map((x) => (
                   <MenuItem value={x.rarity} key={x.rarity}>
                     [{x.rarity} stars] {x.title}
+                  </MenuItem>
+                ))}
+              </Select>
+              <InputLabel title="Category" id="category">
+                Category
+              </InputLabel>
+              <Select
+                label="category"
+                labelId="category"
+                value={formik.values.category}
+                onChange={formik.handleChange}
+                name="category"
+              >
+                {categories.map((x) => (
+                  <MenuItem value={x.category_id} key={x.category_id}>
+                    {x.category_name}
                   </MenuItem>
                 ))}
               </Select>
