@@ -1,7 +1,5 @@
 import Flex from "@react-css/flex";
 import Avatar from "@mui/material/Avatar";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";

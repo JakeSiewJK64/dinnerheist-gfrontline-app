@@ -7,9 +7,10 @@ import {
   DialogContent,
   Select,
   InputLabel,
-  FormControl,
   MenuItem,
   DialogTitle,
+  TextareaAutosize,
+  Divider,
 } from "@mui/material";
 import { rarity_select } from "../../../shared/constants";
 import { useRef, useEffect, useState } from "react";
@@ -21,9 +22,20 @@ import Flex from "@react-css/flex";
 export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
   const [countries, setCountries] = useState(null);
   const [doll, setDoll] = useState(null);
+  const [teams, setTeams] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   var imageRef;
   var formik;
+
+  const GetTeams = async () => {
+    if (isLoading) {
+      const res = await fetch("/heroes/getFactionTeam", {
+        method: "GET",
+      });
+      const rows = await res.json();
+      setTeams(rows);
+    }
+  };
 
   const GetExistingHeroes = async () => {
     if (hero !== null && isLoading) {
@@ -51,8 +63,9 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
   const handleClose = () => {
     setOpenDialog(false);
     setDoll(null);
+    setTeams(null);
     setIsLoading(true);
-  }
+  };
 
   const GetFormik = () => {
     formik = useFormik({
@@ -72,7 +85,13 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
         accuracy: 0,
         firerate: 0,
         manufacturer: "",
-        country: "",
+        country: 1,
+        team_id: 1,
+        revise: "",
+        va: "",
+        artist: "",
+        description: "",
+        personality: "",
       },
       onSubmit: (val) => {
         console.log(val);
@@ -84,6 +103,7 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
   GetFormik();
 
   if (openHeroDialog) {
+    GetTeams();
     GetExistingHeroes();
   }
 
@@ -91,7 +111,12 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
     GetCountries();
   }, [!isLoading]);
 
-  if (openHeroDialog && countries !== undefined && countries !== null) {
+  if (
+    openHeroDialog &&
+    countries !== undefined &&
+    countries !== null &&
+    teams !== null
+  ) {
     const onImageUploadClick = () => {
       imageRef.current.click();
     };
@@ -104,8 +129,6 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
         formik.values.image_url = file;
       };
     };
-
-    console.log(doll);
 
     return (
       <Dialog
@@ -179,6 +202,7 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
                   </MenuItem>
                 ))}
               </Select>
+              <Divider />
               <h2>Gun Stats</h2>
               <Flex row gap={10}>
                 <TextField
@@ -268,6 +292,7 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
                   value={formik.values.firerate}
                 />
               </Flex>
+              <Divider />
               <h2>Gun Information</h2>
               <Flex column gap={10}>
                 <TextField
@@ -294,14 +319,97 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
                     </MenuItem>
                   ))}
                 </Select>
+                <InputLabel title="Team" id="team">
+                  Team
+                </InputLabel>
+                <Select
+                  value={formik.values.team_id}
+                  label="Team"
+                  labelId="team"
+                  onChange={formik.handleChange}
+                  name="team_id"
+                >
+                  {teams.map((x) => (
+                    <MenuItem value={x.team_id} key={x.team_id}>
+                      {x.team_name}
+                    </MenuItem>
+                  ))}
+                </Select>
               </Flex>
+              <Divider />
+              <h2>Game Information</h2>
+              <Flex column gap={10}>
+                <TextField
+                  fullWidth
+                  helperText="* FACTION DEPENDENT ON TEAM SELECTION"
+                  InputProps={{
+                    disabled: true,
+                  }}
+                  label="Faction"
+                  type="text"
+                  name="faction"
+                  onChange={formik.handleChange}
+                  value={
+                    teams.filter((x) => {
+                      return x.team_id === formik.values.team_id;
+                    })[0].faction_name
+                  }
+                />
+                <TextField
+                  fullWidth
+                  label="Manufactured By / Revise"
+                  type="text"
+                  name="revise"
+                  onChange={formik.handleChange}
+                  value={formik.values.revise}
+                />
+                <TextField
+                  fullWidth
+                  label="Voice Actor"
+                  type="text"
+                  name="va"
+                  onChange={formik.handleChange}
+                  value={formik.values.va}
+                />
+                <TextField
+                  fullWidth
+                  label="Artist"
+                  type="text"
+                  name="artist"
+                  onChange={formik.handleChange}
+                  value={formik.values.artist}
+                />
+              </Flex>
+            </Flex>
+            <h2>Miscellaneous</h2>
+            <Flex column gap={10}>
+              <Divider />
+              <h3>Doll Description</h3>
+              <TextareaAutosize
+                name="description"
+                onChange={formik.handleChange}
+                style={{
+                  minHeight: "5rem",
+                  height: "5rem",
+                }}
+                placeholder="Doll Description"
+                fullWidth
+              />
+              <h3>Doll Personality</h3>
+              <TextareaAutosize
+                name="personality"
+                onChange={formik.handleChange}
+                style={{
+                  minHeight: "5rem",
+                  height: "5rem",
+                }}
+                placeholder="Doll Personality"
+                fullWidth
+              />
             </Flex>
           </DialogContent>
           <DialogActions>
-            <Button
-              variant="outlined"
-              onClick={handleClose}
-            >
+            <Button variant="outlined" onClick={handleClose}>
               CLOSE
             </Button>
             <Button color="error" variant="outlined" type="submit">
