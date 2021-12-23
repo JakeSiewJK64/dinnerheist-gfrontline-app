@@ -19,32 +19,20 @@ import { useFormik } from "formik";
 import empty_profile from "../../../img/empty-profile.png";
 import Flex from "@react-css/flex";
 
-export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
+export default function AddHeroDialog({ openHeroDialog, setOpenDialog }) {
   const [countries, setCountries] = useState(null);
   const [categories, setCategories] = useState(null);
-  const [doll, setDoll] = useState(null);
   const [teams, setTeams] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   var imageRef;
   var formik;
 
   const GetTeams = async () => {
-    if (isLoading) {
-      const res = await fetch("/heroes/getFactionTeam", {
-        method: "GET",
-      });
-      const rows = await res.json();
-      setTeams(rows);
-      setIsLoading(false);
-    }
-  };
-
-  const GetExistingHeroes = async () => {
-    const res = await fetch("/heroes/getHeroById/" + hero.hero_id, {
+    const res = await fetch("/heroes/getFactionTeam", {
       method: "GET",
     });
     const rows = await res.json();
-    setDoll(rows);
+    setTeams(rows);
   };
 
   const GetCountries = async () => {
@@ -61,15 +49,13 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
     });
     const rows = await res.json();
     setCategories(rows);
+    setIsLoading(false);
   };
 
-  const GetImageRef = () => {
-    imageRef = useRef();
-  };
+  imageRef = useRef();
 
   const handleClose = () => {
     setOpenDialog(false);
-    setDoll(null);
     setTeams(null);
     setIsLoading(true);
   };
@@ -92,26 +78,7 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
     }
   };
 
-  const GetExistingFormik = (val) => {
-    formik = useFormik({
-      initialValues: {
-        image_url: val.image_url,
-        hero_name: val.hero_name,
-        hero_fullname: val.hero_fullname,
-        // health: val.health,
-        health: 200,
-        rarity: val.rarity,
-      },
-      onSubmit: async (val) => {
-        submitHero(val);
-      },
-    });
-    setIsLoading(false);
-    console.log("existing");
-  };
-
   const GetFormik = () => {
-    console.log("new");
     formik = useFormik({
       initialValues: {
         image_url: "",
@@ -149,32 +116,15 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
     formik.setFieldValue("image_url", "");
   };
 
-  GetImageRef();
-
-  if (openHeroDialog) {
-    GetTeams();
-  }
-
-  if (hero !== null) {
-    GetExistingHeroes();
-    if (doll !== undefined && doll !== null) {
-      GetExistingFormik(doll);
-    }
-  } else {
-    GetFormik();
-  }
-
   useEffect(() => {
+    GetTeams();
     GetCountries();
     GetCategories();
   }, [!isLoading]);
 
-  if (
-    openHeroDialog &&
-    countries !== undefined &&
-    countries !== null &&
-    teams !== null
-  ) {
+  GetFormik();
+
+  if (openHeroDialog && countries !== null && teams !== null) {
     const onImageUploadClick = () => {
       imageRef.current.click();
     };
@@ -213,7 +163,7 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog, hero }) {
         <form onSubmit={formik.handleSubmit}>
           <DialogTitle>
             <div>
-              <h3>{hero !== null ? "Edit" : "Add"} Hero</h3>
+              <h3>Add Hero</h3>
             </div>
           </DialogTitle>
           <DialogContent>
