@@ -11,10 +11,12 @@ import MaUTable from "@material-ui/core/Table";
 import { usePagination, useTable } from "react-table";
 import TablePagination from "@material-ui/core/TablePagination/TablePagination";
 import AddHeroDialog from "../add-hero-dialog/add-hero-dialog";
+import { EditHeroDialog } from "../edit-hero-dialog/edit-hero-dialog";
 
 const HeroTable = function ({ columns, data }) {
   const [paginatorPage, setPaginatorPage] = useState(0);
   const [openDialog, setOpenDialog] = useState(false);
+  const [openEditDialog, setOpenEditDialog] = useState(false);
   const [hero, setSelectedHero] = useState(null);
   const [rowNumberSelection] = useState([2, 5, 10, 15, 20, 50, 100]);
   const {
@@ -48,7 +50,7 @@ const HeroTable = function ({ columns, data }) {
   };
 
   const openDialogFunction = (herochoice) => {
-    setOpenDialog(true);
+    setOpenEditDialog(true);
     setSelectedHero({
       image_url: herochoice.row.original.image_url,
       hero_id: herochoice.row.original.hero_id,
@@ -66,6 +68,11 @@ const HeroTable = function ({ columns, data }) {
         openHeroDialog={openDialog}
         setOpenDialog={setOpenDialog}
         hero={hero}
+      />
+      <EditHeroDialog
+        openDialog={openEditDialog}
+        setOpenDialog={setOpenEditDialog}
+        doll={hero}
       />
       <TableContainer>
         <MaUTable {...getTableProps()}>
