@@ -2,3 +2,8 @@
     background-color: #ecf0f1;
     cursor: pointer;
 }
+
+.active-link {
+    border-left: 5px black solid;
+    border-bottom-left-radius: 3px;
+}
