@@ -53,10 +53,6 @@ const HeroTable = function ({ columns, data }) {
       image_url: herochoice.row.original.image_url,
       hero_id: herochoice.row.original.hero_id,
       hero_name: herochoice.row.original.hero_name,
-      hero_email: herochoice.row.original.hero_email,
-      hero_firstname: herochoice.row.original.first_name,
-      hero_lastname: herochoice.row.original.last_name,
-      hero_role: herochoice.row.original.role_name,
     });
   };
 
