@@ -3,11 +3,11 @@ import Flex from "@react-css/flex";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../../../shared/shared-components/loadingSpinner/loadingSpinner";
 import AddHeroDialog from "../add-hero-dialog/add-hero-dialog";
+import { EditHeroDialog } from "../edit-hero-dialog/edit-hero-dialog";
 import HeroTable from "../hero-table/hero-table";
 
 const AddHero = function () {
   const [isLoading, setIsLoading] = useState(true);
-  const [isAddNewUser] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [dolls, setDolls] = useState([]);
   const [columns] = useState([
@@ -33,10 +33,6 @@ const AddHero = function () {
     },
   ]);
 
-  const openDialogFunction = () => {
-    setOpenDialog(true);
-  };
-
   const GetHeroes = async () => {
     const response = await fetch("/heroes/getAllHeroes", {
       method: "GET",
@@ -57,7 +53,6 @@ const AddHero = function () {
   return (
     <div className="card mt-5 w-75 mx-auto">
       <AddHeroDialog
-        hero={null}
         openHeroDialog={openDialog}
         setOpenDialog={setOpenDialog}
       />

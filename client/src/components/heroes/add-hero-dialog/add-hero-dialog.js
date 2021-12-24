@@ -124,7 +124,7 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog }) {
 
   GetFormik();
 
-  if (openHeroDialog && countries !== null && teams !== null) {
+  if (openHeroDialog) {
     const onImageUploadClick = () => {
       imageRef.current.click();
     };

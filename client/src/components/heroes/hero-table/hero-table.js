@@ -64,11 +64,6 @@ const HeroTable = function ({ columns, data }) {
 
   return (
     <div>
-      <AddHeroDialog
-        openHeroDialog={openDialog}
-        setOpenDialog={setOpenDialog}
-        hero={hero}
-      />
       <EditHeroDialog
         openDialog={openEditDialog}
         setOpenDialog={setOpenEditDialog}
