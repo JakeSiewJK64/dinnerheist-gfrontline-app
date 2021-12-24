@@ -9,7 +9,7 @@ const jwtGenerator = require("../../utils/jwtGenerator");
 const logger = require("../../utils/logger");
 
 router.post("/register", validInfo, async (req, res) => {
-  const { email, name, password } = req.body;
+  const { email, name, password, first_name, last_name, role } = req.body;
 
   try {
     const user = await pool.query("SELECT * FROM users WHERE user_email = $1", [
@@ -24,8 +24,8 @@ router.post("/register", validInfo, async (req, res) => {
     const bcryptPassword = await bcrypt.hash(password, salt);
 
     let newUser = await pool.query(
-      "INSERT INTO users (user_name, user_email, user_password) VALUES ($1,$2,$3)",
-      [name, email, bcryptPassword]
+      "INSERT INTO users (user_name, user_email, user_password, first_name, last_name, role) VALUES ($1,$2,$3,$4,$5,$6)",
+      [name, email, bcryptPassword, first_name, last_name, role]
     );
 
     var newuser = await pool.query(

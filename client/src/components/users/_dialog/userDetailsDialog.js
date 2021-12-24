@@ -12,8 +12,6 @@ import {
   DialogTitle,
 } from "@mui/material";
 
-import EditIcon from "@mui/icons-material/Edit";
-
 import React, { useRef } from "react";
 import Flex from "@react-css/flex";
 import { useFormik } from "formik";
@@ -143,7 +141,6 @@ export default function UserDetailsDialog({ isOpen, setOpen, userData }) {
                   style={{ width: "5rem", zIndex: 2 }}
                   className="m-3 rounded-circle m-auto profile-circle"
                 />
-                <EditIcon fontSize="medium" className="edit-icon" />
               </Flex>
               <Flex row gap={10}>
                 <TextField

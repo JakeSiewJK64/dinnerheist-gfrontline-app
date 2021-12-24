@@ -172,7 +172,7 @@ export default function AddHeroDialog({ openHeroDialog, setOpenDialog }) {
                 <img
                   src={
                     formik.values.image_url !== null &&
-                    formik.values.image_url.length > 0
+                      formik.values.image_url.length > 0
                       ? formik.values.image_url
                       : empty_profile
                   }
