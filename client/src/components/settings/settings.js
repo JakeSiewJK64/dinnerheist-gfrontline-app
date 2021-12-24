@@ -6,34 +6,52 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import SecurityIcon from "@mui/icons-material/Security";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { CategoriesDetails } from "./categories-details/categories-details";
+import { useState } from "react";
 
 const UserSettings = () => {
+  const [fragmentView, setFragmentView] = useState(null);
+  const [activeLink, setActiveLink] = useState("");
+
+  const [menuItems] = useState([
+    {
+      title: "Account",
+      fragmentView: <div></div>,
+    },
+    {
+      title: "Categories",
+      fragmentView: <CategoriesDetails />,
+    },
+  ]);
+
   return (
     <Flex row gap={10} className="m-3">
-      <div className="w-25 card m-auto shadow">
+      <div className="w-25 card mb-auto shadow">
         <div className="card-body">Settings</div>
         <Divider />
         <Flex column>
-          <div className="card-body settings-menu-list">
-            <AccountCircleIcon fontSize="large" className="me-2" />
-            Account
-          </div>
-          <div className="card-body settings-menu-list">
-            <GitHubIcon fontSize="large" className="me-2" />
-            Projects
-          </div>
-          <div className="card-body settings-menu-list">
-            <SecurityIcon fontSize="large" className="me-2" />
-            Security
-          </div>
-          <div className="card-body settings-menu-list">
-            <LogoutIcon fontSize="large" className="me-2" />
-            Logout
-          </div>
+          {menuItems.map((x) => (
+            <div
+              className={
+                "card-body settings-menu-list" +
+                (x.title === activeLink
+                  ? "card-body settings-menu-list active-link"
+                  : "card-body settings-menu-list mt-auto")
+              }
+              onClick={() => {
+                setFragmentView(x.fragmentView);
+                setActiveLink(x.title);
+              }}
+              key={x.title}
+            >
+              <AccountCircleIcon fontSize="large" className="me-2" />
+              {x.title}
+            </div>
+          ))}
         </Flex>
       </div>
       <div className="w-75 card m-auto shadow">
-        <div className="card-body flex-fill">settings</div>
+        <div className="card-body flex-fill">{fragmentView}</div>
       </div>
     </Flex>
   );

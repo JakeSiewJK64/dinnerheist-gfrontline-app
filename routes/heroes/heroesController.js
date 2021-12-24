@@ -29,6 +29,11 @@ router.get("/getFactionTeam", cors(), async (req, res) => {
   res.json(response.rows);
 });
 
+router.get('/getCategories', cors(), async (req, res) => {
+  const response = await pool.query('SELECT * FROM category');
+  res.json(response.rows);
+})
+
 router.post("/upsertHero", authorize, async (req, res) => {
   const { ...props } = req.body;
 
