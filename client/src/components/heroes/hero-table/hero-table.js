@@ -10,12 +10,10 @@ import React, { useState } from "react";
 import MaUTable from "@material-ui/core/Table";
 import { usePagination, useTable } from "react-table";
 import TablePagination from "@material-ui/core/TablePagination/TablePagination";
-import AddHeroDialog from "../add-hero-dialog/add-hero-dialog";
 import { EditHeroDialog } from "../edit-hero-dialog/edit-hero-dialog";
 
 const HeroTable = function ({ columns, data }) {
   const [paginatorPage, setPaginatorPage] = useState(0);
-  const [openDialog, setOpenDialog] = useState(false);
   const [openEditDialog, setOpenEditDialog] = useState(false);
   const [hero, setSelectedHero] = useState(null);
   const [rowNumberSelection] = useState([2, 5, 10, 15, 20, 50, 100]);
