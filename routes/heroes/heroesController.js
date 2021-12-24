@@ -30,60 +30,115 @@ router.get("/getFactionTeam", cors(), async (req, res) => {
 });
 
 router.post("/upsertHero", authorize, async (req, res) => {
-  console.log(req.body);
   const { ...props } = req.body;
 
   console.log(props);
 
-  try {
-    const response = await pool.query(
-      `INSERT INTO heroes (
-        hero_name,
-        hero_damage,
-        manufacturer,
-        origin_country,
-        artist,
-        va,
-        revise,
-        image_url,
-        evasion,
-        armor,
-        armor_penetration,
-        crit_rate,
-        crit_damage, accuracy, move_speed, health, firerate, rarity, category, description, team_id, hero_fullname, personality) VALUES 
-        (
-          $1, $2, $3, $4, $5, $6, $7, $8, $9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23
-          );`,
-      [
-        props.hero_name,
-        props.damage,
-        props.manufacturer,
-        props.country,
-        props.artist,
-        props.va,
-        props.revise,
-        props.image_url,
-        props.evasion,
-        props.armor,
-        props.armor_penetration,
-        props.crit_rate,
-        props.crit_damage,
-        props.accuracy,
-        props.move_speed,
-        props.health,
-        props.firerate,
-        props.rarity,
-        props.category,
-        props.description,
-        props.team_id,
-        props.hero_fullname,
-        props.personality,
-      ]
-    );
-    return res.status(200).send({
-      msg: response.rows[0],
-    });
-  } catch (error) {}
+  if (props.hero_id === null) {
+    try {
+      const response = await pool.query(
+        `INSERT INTO heroes (
+          hero_name,
+          hero_damage,
+          manufacturer,
+          origin_country,
+          artist,
+          va,
+          revise,
+          image_url,
+          evasion,
+          armor,
+          armor_penetration,
+          crit_rate,
+          crit_damage, accuracy, move_speed, health, firerate, rarity, category, description, team_id, hero_fullname, personality) VALUES 
+          (
+            $1, $2, $3, $4, $5, $6, $7, $8, $9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23
+            );`,
+        [
+          props.hero_name,
+          props.damage,
+          props.manufacturer,
+          props.country,
+          props.artist,
+          props.va,
+          props.revise,
+          props.image_url,
+          props.evasion,
+          props.armor,
+          props.armor_penetration,
+          props.crit_rate,
+          props.crit_damage,
+          props.accuracy,
+          props.move_speed,
+          props.health,
+          props.firerate,
+          props.rarity,
+          props.category,
+          props.description,
+          props.team_id,
+          props.hero_fullname,
+          props.personality,
+        ]
+      );
+      return res.status(200).send({
+        msg: response.rows[0],
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    try {
+      const response = await pool.query(
+        `UPDATE heroes SET
+        hero_name = $1,
+        hero_damage = $2,
+        manufacturer = $3,
+        origin_country = $4,
+        artist = $5,
+        va = $6,
+        revise = $7,
+        image_url = $8,
+        evasion = $9,
+        armor = $10,
+        armor_penetration = $11,
+        crit_rate = $12,
+        crit_damage = $13, accuracy = $14, move_speed = $15, health = $16, firerate = $17, rarity = $18, category = $19, description = $20, team_id = $21, hero_fullname = $22, personality = $23
+        WHERE hero_id = $24;
+        `,
+        [
+          props.hero_name,
+          props.damage,
+          props.manufacturer,
+          props.country,
+          props.artist,
+          props.va,
+          props.revise,
+          props.image_url,
+          props.evasion,
+          props.armor,
+          props.armor_penetration,
+          props.crit_rate,
+          props.crit_damage,
+          props.accuracy,
+          props.move_speed,
+          props.health,
+          props.firerate,
+          props.rarity,
+          props.category,
+          props.description,
+          props.team_id,
+          props.hero_fullname,
+          props.personality,
+          props.hero_id
+        ]
+      );
+      return res.status(200).send({
+        msg: response.rows[0],
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 });
 
 router.get("/getCategories", cors(), async (req, res) => {

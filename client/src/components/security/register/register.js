@@ -12,7 +12,7 @@ const Register = ({ setAuth }) => {
     name: "",
   });
 
-  const { email, password, name } = inputs;
+  const { email, password, name, first_name, last_name, role } = inputs;
 
   const onChange = (e) =>
     setInputs({ ...inputs, [e.target.name]: e.target.value });
@@ -24,7 +24,12 @@ const Register = ({ setAuth }) => {
         email,
         password,
         name,
+        first_name,
+        last_name,
+        role
       };
+
+      body.role = 3;
 
       const response = await fetch("/auth/register", {
         method: "post",
@@ -44,7 +49,7 @@ const Register = ({ setAuth }) => {
         setAuth(false);
         toast.error(parseRes);
       }
-    } catch (err) {}
+    } catch (err) { }
   };
 
   return (
@@ -66,6 +71,24 @@ const Register = ({ setAuth }) => {
                   className="form-control my-3"
                   placeholder="Enter username"
                 />
+                <Flex row gap={5}>
+                  <input
+                    name="first_name"
+                    type="text"
+                    value={first_name}
+                    onChange={(e) => onChange(e)}
+                    className="form-control my-3"
+                    placeholder="Enter first name"
+                  />
+                  <input
+                    name="last_name"
+                    type="text"
+                    value={last_name}
+                    onChange={(e) => onChange(e)}
+                    className="form-control my-3"
+                    placeholder="Enter last name"
+                  />
+                </Flex>
                 <input
                   type="email"
                   name="email"
