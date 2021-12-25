@@ -51,6 +51,10 @@ router.post("/upsertCountries", authorize, async (req, res) => {
   }
 });
 
+// router.post("/upsertTeam", authorize, async (req, res) => {
+
+// });
+
 router.get("/getFactionTeam", cors(), async (req, res) => {
   const response = await pool.query(
     "SELECT t.team_id, t.team_name, f.faction_name FROM team t JOIN faction f on t.faction_id = f.faction_id;"

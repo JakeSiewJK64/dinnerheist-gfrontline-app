@@ -6,8 +6,15 @@ import Icon from "@mdi/react";
 import { CategoriesDetails } from "./categories-details/categories-details";
 import { useState } from "react";
 import { ManageCountries } from "./countries/manage-countries";
-import { mdiAccount, mdiAccountGroup, mdiEarth, mdiPistol } from "@mdi/js";
+import {
+  mdiAccount,
+  mdiAccountGroup,
+  mdiCubeOutline,
+  mdiEarth,
+  mdiPistol,
+} from "@mdi/js";
 import { ManageFaction } from "./faction/manage-faction";
+import { ManageTeam } from "./team-dettings/manage-team";
 
 const UserSettings = () => {
   const [fragmentView, setFragmentView] = useState(null);
@@ -32,6 +39,11 @@ const UserSettings = () => {
     {
       title: "Factions",
       fragmentView: <ManageFaction />,
+      icon: mdiCubeOutline,
+    },
+    {
+      title: "Team",
+      fragmentView: <ManageTeam />,
       icon: mdiAccountGroup,
     },
   ]);
