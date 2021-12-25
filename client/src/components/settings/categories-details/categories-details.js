@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { CategoriesTable } from "./categories-table";
-import { Button } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import { Flex } from "@react-css/flex";
+import RefreshIcon from "@mui/icons-material/Refresh";
+
 import { CategoriesDetailsDialog } from "./categories-details-dialog";
 
 export function CategoriesDetails() {
@@ -38,6 +40,9 @@ export function CategoriesDetails() {
         />
         <Flex row gap={10} justifySpaceBetween>
           <h2>Gun Categories</h2>
+          <IconButton onClick={getCategories}>
+            <RefreshIcon fontSize="59" />
+          </IconButton>
           <Button
             onClick={() => {
               setOpenNewDialog(true);

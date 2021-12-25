@@ -6,21 +6,35 @@ import {
   DialogTitle,
   TextField,
 } from "@mui/material";
+import { toast } from "react-toastify";
 import { useFormik } from "formik";
 
 export function CategoriesDetailsDialog({ openDialog, setOpenDialog, data }) {
   var formik;
 
-  console.log(data);
-
-  const submitCategory = (val) => {
-    console.log("submitted val: ", val);
+  const submitCategory = async (val) => {
+    const res = await fetch("/heroes/upsertCategories", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        jwt_token: localStorage.token,
+      },
+      body: JSON.stringify(val),
+    });
+    const success = res;
+    if (success.status === 200) {
+      toast.success("Success!");
+    } else {
+      toast.error("An error occured!");
+    }
+    setOpenDialog(false);
   };
 
   const GetFormik = () => {
     formik = useFormik({
       initialValues: {
         category_name: data.category_name,
+        category_id: data.category_id,
       },
       onSubmit: (x) => {
         submitCategory(x);
