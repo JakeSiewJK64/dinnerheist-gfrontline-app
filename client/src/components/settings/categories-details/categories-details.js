@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { CategoriesTable } from "./categories-table";
-import { Button } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
+import LoadingSpinner from "../../../shared/shared-components/loadingSpinner/loadingSpinner";
 import { Flex } from "@react-css/flex";
+import RefreshIcon from "@mui/icons-material/Refresh";
+
 import { CategoriesDetailsDialog } from "./categories-details-dialog";
 
 export function CategoriesDetails() {
@@ -15,6 +18,10 @@ export function CategoriesDetails() {
     {
       Header: "Category Name",
       accessor: "category_name",
+    },
+    {
+      Header: "Description",
+      accessor: "category_description",
     },
   ]);
 
@@ -36,20 +43,25 @@ export function CategoriesDetails() {
           setOpenDialog={setOpenNewDialog}
           data={{}}
         />
-        <Flex row gap={10} justifySpaceBetween>
+        <Flex row gap={10}>
           <h2>Gun Categories</h2>
-          <Button
-            onClick={() => {
-              setOpenNewDialog(true);
-            }}
-          >
-            Add Category
-          </Button>
+          <Flex row className="ms-auto">
+            <IconButton onClick={getCategories}>
+              <RefreshIcon fontSize="59" />
+            </IconButton>
+            <Button
+              onClick={() => {
+                setOpenNewDialog(true);
+              }}
+            >
+              Add Category
+            </Button>
+          </Flex>
         </Flex>
         <CategoriesTable columns={headers} data={categories} />
       </div>
     );
   } else {
-    return <div></div>;
+    return <LoadingSpinner color={"#000"} className={"text-black"} />;
   }
 }

@@ -22,6 +22,39 @@ router.get("/getCountries", cors(), async (req, res) => {
   res.json(response.rows);
 });
 
+router.post("/upsertCountries", authorize, async (req, res) => {
+  const { ...props } = req.body;
+  if (props.country_id) {
+    try {
+      const response = await pool.query(
+        "UPDATE countries SET country_name = $1 WHERE country_id = $2",
+        [props.country_name, props.country_id]
+      );
+      if (response) {
+        return res.status(200).send("Success");
+      }
+    } catch (error) {
+      return res.status(500).send(error);
+    }
+  } else {
+    try {
+      const response = await pool.query(
+        "INSERT INTO countries (country_name) VALUES ($1);",
+        [props.country_name]
+      );
+      if (response) {
+        return res.status(200).send("Success");
+      }
+    } catch (error) {
+      return res.status(500).send(error);
+    }
+  }
+});
+
+// router.post("/upsertTeam", authorize, async (req, res) => {
+
+// });
+
 router.get("/getFactionTeam", cors(), async (req, res) => {
   const response = await pool.query(
     "SELECT t.team_id, t.team_name, f.faction_name FROM team t JOIN faction f on t.faction_id = f.faction_id;"
@@ -29,16 +62,84 @@ router.get("/getFactionTeam", cors(), async (req, res) => {
   res.json(response.rows);
 });
 
-router.get('/getCategories', cors(), async (req, res) => {
-  const response = await pool.query('SELECT * FROM category');
+router.get("/getCategories", cors(), async (req, res) => {
+  const response = await pool.query("SELECT * FROM category");
   res.json(response.rows);
-})
+});
+
+router.post("/upsertCategories", authorize, async (req, res) => {
+  const { ...props } = req.body;
+
+  if (props.category_id) {
+    try {
+      const response = await pool.query(
+        `
+        UPDATE category SET category_name = $1, category_description = $2 WHERE category_id = $3
+      `,
+        [props.category_name, props.category_description, props.category_id]
+      );
+      if (response) {
+        res.status(200).send("Success");
+      }
+    } catch (error) {
+      console.log(error);
+      res.status(500).send(error);
+    }
+  } else {
+    try {
+      const response = await pool.query(
+        `
+        INSERT INTO category (category_name, category_description) VALUES ($1, $2)
+      `,
+        [props.category_name, props.category_description]
+      );
+      if (response) {
+        return res.status(200).send("Success");
+      }
+    } catch (error) {
+      console.log(error);
+      return res.status(500).send(error);
+    }
+  }
+});
+
+router.get("/getFactions", cors(), async (req, res) => {
+  const response = await pool.query("SELECT * FROM faction");
+  res.json(response.rows);
+});
+
+router.post("/upsertFaction", authorize, async (req, res) => {
+  const { ...props } = req.body;
+
+  if (props.faction_id) {
+    try {
+      const response = pool.query(
+        "UPDATE faction SET faction_name = $1 WHERE faction_id = $2",
+        [props.faction_name, props.faction_id]
+      );
+      if (response) {
+        return res.status(200).send("Success");
+      }
+    } catch (error) {
+      return res.status(500).send(error);
+    }
+  } else {
+    try {
+      const response = pool.query(
+        "INSERT INTO faction (faction_name, image_url) VALUES ($1, $2)",
+        [props.faction_name, props.image_url]
+      );
+      if (response) {
+        return res.status(200).send("Success");
+      }
+    } catch (error) {
+      return res.status(500).send(error);
+    }
+  }
+});
 
 router.post("/upsertHero", authorize, async (req, res) => {
   const { ...props } = req.body;
-
-  console.log(props);
-
   if (props.hero_id === null) {
     try {
       const response = await pool.query(
@@ -134,7 +235,7 @@ router.post("/upsertHero", authorize, async (req, res) => {
           props.team_id,
           props.hero_fullname,
           props.personality,
-          props.hero_id
+          props.hero_id,
         ]
       );
       return res.status(200).send({
