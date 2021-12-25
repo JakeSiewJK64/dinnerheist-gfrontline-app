@@ -18,6 +18,10 @@ export function CategoriesDetails() {
       Header: "Category Name",
       accessor: "category_name",
     },
+    {
+      Header: "Description",
+      accessor: "category_description",
+    },
   ]);
 
   const getCategories = async () => {
@@ -38,18 +42,20 @@ export function CategoriesDetails() {
           setOpenDialog={setOpenNewDialog}
           data={{}}
         />
-        <Flex row gap={10} justifySpaceBetween>
+        <Flex row gap={10}>
           <h2>Gun Categories</h2>
-          <IconButton onClick={getCategories}>
-            <RefreshIcon fontSize="59" />
-          </IconButton>
-          <Button
-            onClick={() => {
-              setOpenNewDialog(true);
-            }}
-          >
-            Add Category
-          </Button>
+          <Flex row className="ms-auto">
+            <IconButton onClick={getCategories}>
+              <RefreshIcon fontSize="59" />
+            </IconButton>
+            <Button
+              onClick={() => {
+                setOpenNewDialog(true);
+              }}
+            >
+              Add Category
+            </Button>
+          </Flex>
         </Flex>
         <CategoriesTable columns={headers} data={categories} />
       </div>

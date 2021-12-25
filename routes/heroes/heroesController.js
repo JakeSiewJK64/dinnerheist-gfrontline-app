@@ -41,9 +41,9 @@ router.post("/upsertCategories", authorize, async (req, res) => {
     try {
       const response = await pool.query(
         `
-        UPDATE category SET category_name = $1 WHERE category_id = $2
+        UPDATE category SET category_name = $1, category_description = $2 WHERE category_id = $3
       `,
-        [props.category_name, props.category_id]
+        [props.category_name, props.category_description, props.category_id]
       );
       if (response) {
         res.status(200).send("Success");
@@ -56,9 +56,9 @@ router.post("/upsertCategories", authorize, async (req, res) => {
     try {
       const response = await pool.query(
         `
-        INSERT INTO category (category_name) VALUES ($1)
+        INSERT INTO category (category_name, category_description) VALUES ($1, $2)
       `,
-        [props.category_name]
+        [props.category_name, props.category_description]
       );
       if (response) {
         return res.status(200).send("Success");
