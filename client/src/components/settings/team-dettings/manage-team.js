@@ -4,7 +4,8 @@ import { useState } from "react";
 import LoadingSpinner from "../../../shared/shared-components/loadingSpinner/loadingSpinner";
 import { TeamDialog } from "./team-dialog";
 import { TeamTable } from "./team-table";
-import { Button } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
+import RefreshIcon from "@mui/icons-material/Refresh";
 
 export function ManageTeam() {
   const [team, setTeam] = useState(null);
@@ -12,12 +13,12 @@ export function ManageTeam() {
   const [newDialog, setNewDialog] = useState(false);
   const [headers] = useState([
     {
-      Header: "Team Name",
-      accessor: "team_name",
-    },
-    {
       Header: "ID",
       accessor: "team_id",
+    },
+    {
+      Header: "Team Name",
+      accessor: "team_name",
     },
     {
       Header: "Faction Name",
@@ -48,12 +49,17 @@ export function ManageTeam() {
         <TeamDialog
           openDialog={newDialog}
           setOpenDialog={setNewDialog}
-          data={team}
+          data={{}}
           factions={faction}
         />
         <Flex row justifySpaceBetween>
           <h2>Manage Team</h2>
-          <Button onClick={() => setNewDialog(true)}>Add Team</Button>
+          <Flex justifySpaceBetween>
+            <IconButton onClick={getTeams}>
+              <RefreshIcon />
+            </IconButton>
+            <Button onClick={() => setNewDialog(true)}>Add Team</Button>
+          </Flex>
         </Flex>
         <TeamTable columns={headers} data={team} faction={faction} />
       </div>

@@ -10,22 +10,35 @@ import {
 import Flex from "@react-css/flex";
 import { useFormik } from "formik";
 import { InputLabel, MenuItem } from "@material-ui/core";
+import { toast } from "react-toastify";
 
 export function TeamDialog({ openDialog, setOpenDialog, data, factions }) {
   var formik;
 
   const submitForm = async (val) => {
-    console.log(val);
+    const response = await fetch("/heroes/upsertTeam", {
+      method: "POST",
+      headers: {
+        jwt_token: localStorage.token,
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(val),
+    });
+    if (response) {
+      toast.success("Success");
+      setOpenDialog(false);
+      formik.resetForm();
+    }
   };
 
   const GetFormik = () => {
     formik = useFormik({
       initialValues: {
-        team_name: data.team_name,
+        team_name: data.team_name ? data.team_name : "",
         faction_name: data.faction_name
           ? data.faction_name
           : factions[0].faction_name,
-        team_id: data.team_id,
+        team_id: data.team_id ? data.team_id : null,
       },
       enableReinitialize: true,
       onSubmit: (x) => {
@@ -39,7 +52,7 @@ export function TeamDialog({ openDialog, setOpenDialog, data, factions }) {
     return (
       <div>
         <Dialog open={openDialog}>
-          <DialogTitle>Add Team</DialogTitle>
+          <DialogTitle>{data.team_id ? "Edit" : "Add"} Team</DialogTitle>
           <form onSubmit={formik.handleSubmit}>
             <DialogContent>
               <Flex column gap={10}>
