@@ -16,6 +16,7 @@ import { ManageCountries } from "./countries/manage-countries";
 import { ManageFaction } from "./faction/manage-faction";
 import { ManageTeam } from "./team-dettings/manage-team";
 import { BaseSettings } from "./base-settings/base-settings";
+import { UserProfile } from "./account-profile/user-profile";
 
 const UserSettings = () => {
   const [fragmentView, setFragmentView] = useState(null);
@@ -24,7 +25,7 @@ const UserSettings = () => {
   const [menuItems] = useState([
     {
       title: "Account",
-      fragmentView: <div></div>,
+      fragmentView: <UserProfile />,
       icon: mdiAccount,
     },
     {
