@@ -2,10 +2,11 @@ import Flex from "@react-css/flex";
 import "./settings.css";
 
 import Divider from "@mui/material/Divider/Divider";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import Icon from "@mdi/react";
 import { CategoriesDetails } from "./categories-details/categories-details";
 import { useState } from "react";
 import { ManageCountries } from "./countries/manage-countries";
+import { mdiAccount, mdiEarth, mdiPistol } from "@mdi/js";
 
 const UserSettings = () => {
   const [fragmentView, setFragmentView] = useState(null);
@@ -15,14 +16,17 @@ const UserSettings = () => {
     {
       title: "Account",
       fragmentView: <div></div>,
+      icon: mdiAccount,
     },
     {
       title: "Categories",
       fragmentView: <CategoriesDetails />,
+      icon: mdiPistol,
     },
     {
       title: "Countries",
       fragmentView: <ManageCountries />,
+      icon: mdiEarth,
     },
   ]);
 
@@ -46,8 +50,10 @@ const UserSettings = () => {
               }}
               key={x.title}
             >
-              <AccountCircleIcon fontSize="large" className="me-2" />
-              {x.title}
+              <Flex row gap={5}>
+                <Icon path={x.icon} size={1} />
+                {x.title}
+              </Flex>
             </div>
           ))}
         </Flex>
