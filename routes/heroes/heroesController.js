@@ -51,9 +51,36 @@ router.post("/upsertCountries", authorize, async (req, res) => {
   }
 });
 
-// router.post("/upsertTeam", authorize, async (req, res) => {
-
-// });
+router.post("/upsertTeam", authorize, async (req, res) => {
+  const { ...props } = req.body;
+  if (props.team_id) {
+    try {
+      const response = await pool.query(
+        "UPDATE team SET team_name = $1, faction_id = (SELECT faction_id FROM faction WHERE faction_name = $2) WHERE team_id = $3",
+        [props.team_name, props.faction_name, props.team_id]
+      );
+      if (response) {
+        return res.status(200).send("Success");
+      }
+    } catch (error) {
+      console.log(error);
+      return res.status(200).send(error);
+    }
+  } else {
+    try {
+      const response = await pool.query(
+        "INSERT INTO team (team_name, faction_id) VALUES ($1, (SELECT faction_id FROM faction WHERE faction_name = $2))",
+        [props.team_name, props.faction_name]
+      );
+      if (response) {
+        return res.status(200).send("Success");
+      }
+    } catch (error) {
+      console.log(error);
+      return res.status(200).send(error);
+    }
+  }
+});
 
 router.get("/getFactionTeam", cors(), async (req, res) => {
   const response = await pool.query(
