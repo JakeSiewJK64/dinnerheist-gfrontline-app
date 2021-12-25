@@ -6,7 +6,8 @@ import Icon from "@mdi/react";
 import { CategoriesDetails } from "./categories-details/categories-details";
 import { useState } from "react";
 import { ManageCountries } from "./countries/manage-countries";
-import { mdiAccount, mdiEarth, mdiPistol } from "@mdi/js";
+import { mdiAccount, mdiAccountGroup, mdiEarth, mdiPistol } from "@mdi/js";
+import { ManageFaction } from "./faction/manage-faction";
 
 const UserSettings = () => {
   const [fragmentView, setFragmentView] = useState(null);
@@ -27,6 +28,11 @@ const UserSettings = () => {
       title: "Countries",
       fragmentView: <ManageCountries />,
       icon: mdiEarth,
+    },
+    {
+      title: "Factions",
+      fragmentView: <ManageFaction />,
+      icon: mdiAccountGroup,
     },
   ]);
 

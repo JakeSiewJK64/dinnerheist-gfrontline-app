@@ -99,6 +99,41 @@ router.post("/upsertCategories", authorize, async (req, res) => {
   }
 });
 
+router.get("/getFactions", cors(), async (req, res) => {
+  const response = await pool.query("SELECT * FROM faction");
+  res.json(response.rows);
+});
+
+router.post("/upsertFaction", authorize, async (req, res) => {
+  const { ...props } = req.body;
+
+  if (props.faction_id) {
+    try {
+      const response = pool.query(
+        "UPDATE faction SET faction_name = $1 WHERE faction_id = $2",
+        [props.faction_name, props.faction_id]
+      );
+      if (response) {
+        return res.status(200).send("Success");
+      }
+    } catch (error) {
+      return res.status(500).send(error);
+    }
+  } else {
+    try {
+      const response = pool.query(
+        "INSERT INTO faction (faction_name, image_url) VALUES ($1, $2)",
+        [props.faction_name, props.image_url]
+      );
+      if (response) {
+        return res.status(200).send("Success");
+      }
+    } catch (error) {
+      return res.status(500).send(error);
+    }
+  }
+});
+
 router.post("/upsertHero", authorize, async (req, res) => {
   const { ...props } = req.body;
   if (props.hero_id === null) {

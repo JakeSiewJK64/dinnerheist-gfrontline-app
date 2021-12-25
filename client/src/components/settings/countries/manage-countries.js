@@ -4,6 +4,7 @@ import { Button, IconButton } from "@mui/material";
 import { CountriesTable } from "./countries-table";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import { CountriesDetailsDialog } from "./countries-details-dialog";
+import LoadingSpinner from "../../../shared/shared-components/loadingSpinner/loadingSpinner";
 
 export function ManageCountries({}) {
   const [countries, setContries] = useState(null);
@@ -56,6 +57,6 @@ export function ManageCountries({}) {
       </div>
     );
   } else {
-    return <div></div>;
+    return <LoadingSpinner color={"#000"} className={"text-black"} />;
   }
 }

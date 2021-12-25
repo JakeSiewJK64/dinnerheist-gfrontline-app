@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { CategoriesTable } from "./categories-table";
 import { Button, IconButton } from "@mui/material";
+import LoadingSpinner from "../../../shared/shared-components/loadingSpinner/loadingSpinner";
 import { Flex } from "@react-css/flex";
 import RefreshIcon from "@mui/icons-material/Refresh";
 
@@ -61,6 +62,6 @@ export function CategoriesDetails() {
       </div>
     );
   } else {
-    return <div></div>;
+    return <LoadingSpinner color={"#000"} className={"text-black"} />;
   }
 }
