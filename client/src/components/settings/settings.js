@@ -3,9 +3,7 @@ import "./settings.css";
 
 import Divider from "@mui/material/Divider/Divider";
 import Icon from "@mdi/react";
-import { CategoriesDetails } from "./categories-details/categories-details";
 import { useState } from "react";
-import { ManageCountries } from "./countries/manage-countries";
 import {
   mdiAccount,
   mdiAccountGroup,
@@ -13,8 +11,11 @@ import {
   mdiEarth,
   mdiPistol,
 } from "@mdi/js";
+import { CategoriesDetails } from "./categories-details/categories-details";
+import { ManageCountries } from "./countries/manage-countries";
 import { ManageFaction } from "./faction/manage-faction";
 import { ManageTeam } from "./team-dettings/manage-team";
+import { BaseSettings } from "./base-settings/base-settings";
 
 const UserSettings = () => {
   const [fragmentView, setFragmentView] = useState(null);
@@ -51,7 +52,14 @@ const UserSettings = () => {
   return (
     <Flex row gap={10} className="m-3">
       <div className="w-25 card mb-auto shadow">
-        <div className="card-body">Settings</div>
+        <div
+          className="card-body base-settings-menu-item"
+          onClick={() => {
+            return setFragmentView(<BaseSettings />);
+          }}
+        >
+          Settings
+        </div>
         <Divider />
         <Flex column>
           {menuItems.map((x) => (
@@ -77,7 +85,9 @@ const UserSettings = () => {
         </Flex>
       </div>
       <div className="w-75 card m-auto shadow">
-        <div className="card-body flex-fill">{fragmentView}</div>
+        <div className="card-body flex-fill">
+          {fragmentView ? fragmentView : <BaseSettings />}
+        </div>
       </div>
     </Flex>
   );

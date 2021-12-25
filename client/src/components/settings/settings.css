@@ -1,8 +1,12 @@
 .settings-menu-list:hover {
-    background-color: #ecf0f1;
-    cursor: pointer;
+  background-color: #ecf0f1;
+  cursor: pointer;
 }
 
 .active-link {
-    border-left: 5px #e74c3c solid;
+  border-left: 5px #e74c3c solid;
+}
+
+.base-settings-menu-item:hover {
+  cursor: pointer;
 }
