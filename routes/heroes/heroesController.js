@@ -22,6 +22,35 @@ router.get("/getCountries", cors(), async (req, res) => {
   res.json(response.rows);
 });
 
+router.post("/upsertCountries", authorize, async (req, res) => {
+  const { ...props } = req.body;
+  if (props.country_id) {
+    try {
+      const response = await pool.query(
+        "UPDATE countries SET country_name = $1 WHERE country_id = $2",
+        [props.country_name, props.country_id]
+      );
+      if (response) {
+        return res.status(200).send("Success");
+      }
+    } catch (error) {
+      return res.status(500).send(error);
+    }
+  } else {
+    try {
+      const response = await pool.query(
+        "INSERT INTO countries (country_name) VALUES ($1);",
+        [props.country_name]
+      );
+      if (response) {
+        return res.status(200).send("Success");
+      }
+    } catch (error) {
+      return res.status(500).send(error);
+    }
+  }
+});
+
 router.get("/getFactionTeam", cors(), async (req, res) => {
   const response = await pool.query(
     "SELECT t.team_id, t.team_name, f.faction_name FROM team t JOIN faction f on t.faction_id = f.faction_id;"

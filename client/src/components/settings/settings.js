@@ -3,11 +3,9 @@ import "./settings.css";
 
 import Divider from "@mui/material/Divider/Divider";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import SecurityIcon from "@mui/icons-material/Security";
-import LogoutIcon from "@mui/icons-material/Logout";
 import { CategoriesDetails } from "./categories-details/categories-details";
 import { useState } from "react";
+import { ManageCountries } from "./countries/manage-countries";
 
 const UserSettings = () => {
   const [fragmentView, setFragmentView] = useState(null);
@@ -21,6 +19,10 @@ const UserSettings = () => {
     {
       title: "Categories",
       fragmentView: <CategoriesDetails />,
+    },
+    {
+      title: "Countries",
+      fragmentView: <ManageCountries />,
     },
   ]);
 
