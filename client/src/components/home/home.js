@@ -1,16 +1,14 @@
-import logo from "../../img/logo.svg";
 import "./home.css";
 import React, { Fragment } from "react";
-import LogoutFunction from "../../shared/shared-components/logout/logout";
 import Flex from "@react-css/flex";
 
 const Home = ({ setAuth, username }) => {
   return (
     <Fragment>
-      <div className="character-container">
-        <img src="https://iopwiki.com/images/3/30/UMP45_costume4.png" />
-      </div>
       <div className="base-background">
+        <div className="character-container">
+          <img src="https://iopwiki.com/images/3/30/UMP45_costume4.png" />
+        </div>
         <div className="home-menu-container">
           <Flex
             column
@@ -35,8 +33,7 @@ const Home = ({ setAuth, username }) => {
               <Flex
                 rowReverse
                 gap={5}
-                className="subcontainer-item-bottom"
-                style={{ width: "27rem" }}
+                className="subcontainer-item-bottom w-100"
               >
                 <div>
                   <h2>Battle</h2>

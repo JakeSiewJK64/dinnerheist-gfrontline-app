@@ -31,7 +31,7 @@ function Footer() {
           <Flex column>
             <Flex row className="link">
               <Icon path={mdiGithub} font={1} />
-              <a href="#">Github</a>
+              <a href="https://github.com/JakeSiewJK64/">Github</a>
             </Flex>
           </Flex>
         </div>
