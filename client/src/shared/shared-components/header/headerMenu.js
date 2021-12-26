@@ -40,7 +40,7 @@ const HeaderMenu = ({ name, role, setAuth }) => {
                   <Divider />
                   {headerProfileMenuOptions.map((a, b) => {
                     return (
-                      <Link to={a.url} key={b}>
+                      <Link to={"/" + a.url} key={b}>
                         <Button variant="text" className="item">
                           <ListItemIcon>{a.icon}</ListItemIcon>
                           {a.title}

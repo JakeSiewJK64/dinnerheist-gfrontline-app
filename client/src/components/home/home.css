@@ -5,19 +5,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-.base-background {
   background-size: 100%;
   background-repeat: no-repeat;
   background-image: url(https://cutewallpaper.org/21/girls-frontline-backgrounds/Image-Wiki-background-Girls-Frontline-English-Wikia-.jpg);
   height: 90vh;
   width: auto;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 .home-menu-container {
