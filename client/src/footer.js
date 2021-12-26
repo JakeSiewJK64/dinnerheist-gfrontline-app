@@ -15,6 +15,14 @@ function Footer() {
             Girls Frontline App is a community website built to assist players
             by providing a guide for in-game dolls, weapons and items.
           </p>
+          <div>
+            <strong>Developed by: JakeSiewJK64</strong>
+            <sup>
+              <strong className="rounded-pill m-1 bg-danger text-white p-1">
+                Ω
+              </strong>
+            </sup>
+          </div>
         </div>
         <div className="">
           <Flex row>
