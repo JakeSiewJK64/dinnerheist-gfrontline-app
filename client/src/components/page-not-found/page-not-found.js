@@ -1,4 +1,5 @@
 import Flex from "@react-css/flex";
+import sopmod from "../../img/sopmod_404.png";
 
 export function MissingPage() {
   return (
@@ -7,11 +8,7 @@ export function MissingPage() {
         <Flex column alignItemsCenter>
           <h1>Oops!</h1>
           <h4>The page you are looking for is not available.</h4>
-          <img
-            draggable="false"
-            src="https://www.gran-turismo.com/gtsport/decal/7061723382835873296_1.png"
-            style={{ width: "20rem" }}
-          />
+          <img draggable="false" src={sopmod} style={{ width: "20rem" }} />
         </Flex>
       </div>
     </div>
