@@ -12,7 +12,7 @@
 
 .hero-content {
   position: absolute;
-  height: 45rem;
+  height: 90vh;
   overflow-y: scroll;
   left: 0;
   right: 0;
