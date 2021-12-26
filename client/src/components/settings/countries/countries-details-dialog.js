@@ -71,12 +71,8 @@ export function CountriesDetailsDialog({ openDialog, setOpenDialog, data }) {
               </div>
             </DialogContent>
             <DialogActions>
-              <Button variant="outlined" onClick={() => setOpenDialog(false)}>
-                DISMISS
-              </Button>
-              <Button variant="outlined" type="submit">
-                ACTION
-              </Button>
+              <Button onClick={() => setOpenDialog(false)}>DISMISS</Button>
+              <Button type="submit">SAVE</Button>
             </DialogActions>
           </form>
         </Dialog>

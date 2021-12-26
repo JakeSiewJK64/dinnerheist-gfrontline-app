@@ -20,6 +20,7 @@ import { AppHeader } from "./shared/shared-components/header/header";
 import LoadingSpinner from "./shared/shared-components/loadingSpinner/loadingSpinner";
 import Footer from "./footer";
 import AddHero from "./components/heroes/manage-hero/manage-hero";
+import { MissingPage } from "./components/page-not-found/page-not-found";
 
 toast.configure();
 
@@ -84,17 +85,6 @@ function App() {
         <Switch>
           <Route
             exact
-            path="/customers"
-            render={(props) =>
-              isAuthenticated ? (
-                <Customers {...props} setAuth={setAuth} />
-              ) : (
-                <Redirect to="/authentication/login" />
-              )
-            }
-          />
-          <Route
-            exact
             path="/users"
             render={(props) =>
               isAuthenticated && role === "administrator" ? (
@@ -123,29 +113,6 @@ function App() {
                 <UserSettings {...props} setAuth={setAuth} />
               ) : (
                 <Redirect to="/authentication/login" />
-              )
-            }
-          />
-          <Route
-            exact
-            path="/pokemon"
-            render={(props) =>
-              isAuthenticated ? (
-                <Pokemon {...props} setAuth={setAuth} />
-              ) : (
-                <Redirect to="/authentication/login" />
-              )
-            }
-          />
-          <Route
-            exact
-            path="/authentication/register"
-            exact
-            render={(props) =>
-              isAuthenticated ? (
-                <Redirect to="/" />
-              ) : (
-                <Register {...props} setAuth={setAuth} />
               )
             }
           />
@@ -188,12 +155,7 @@ function App() {
               )
             }
           />
-          <Route
-            exact
-            path="*"
-            exact
-            render={(props) => <div>404 not found</div>}
-          />
+          <Route exact path="*" render={(props) => <MissingPage />} />
         </Switch>
       </header>
       <Footer />

@@ -85,11 +85,6 @@ const Login = ({ setAuth }) => {
               </Flex>
             </form>
           </Flex>
-          <div className="d-flex justify-content-center my-4">
-            <Link to="/authentication/register">
-              Don't have an account? Sign up!
-            </Link>
-          </div>
         </Card>
       </div>
     </Fragment>
