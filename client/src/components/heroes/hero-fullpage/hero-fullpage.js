@@ -69,7 +69,7 @@ const HeroFullPage = (props) => {
     <div></div>
   ) : (
     <div
-      className="card w-75 my-5 mx-auto text-white"
+      className="card w-75 my-5 mx-auto text-white hero-content"
       style={{ backgroundColor: "#222f3e" }}
     >
       <Flex column gap={20} className="card-body shadow-lg">
