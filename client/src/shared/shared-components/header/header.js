@@ -10,7 +10,7 @@ export const AppHeader = ({ username, userrole, setAuth }) => {
   return (
     <div className="w-100" style={{ backgroundColor: "#222f3e" }}>
       <Flex justifySpaceBetween>
-        <Link to="/heroes" className="logo">
+        <Link to="/" className="logo">
           <Flex row justifyCenter>
             <img src={gfTitle} className="logo-config" alt="logo" />
           </Flex>

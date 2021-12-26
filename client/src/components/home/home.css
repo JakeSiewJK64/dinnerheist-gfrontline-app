@@ -1,14 +1,79 @@
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-  
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.base-background {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url(https://cutewallpaper.org/21/girls-frontline-backgrounds/Image-Wiki-background-Girls-Frontline-English-Wikia-.jpg);
+  height: 90vh;
+  width: auto;
+}
+
+.home-menu-container {
+  height: 20rem;
+  background-color: transparent;
+  position: absolute;
+  right: 20rem;
+  top: 15rem;
+}
+
+.character-container {
+  position: absolute;
+  left: 8rem;
+}
+
+.character-container > img {
+  height: 85vh;
+}
+
+.subcontainer-item-bottom > div {
+  background: #f1c40f;
+  color: #000;
+  width: 100%;
+  padding: 10px;
+}
+
+.subcontainer-item-bottom > div:hover {
+  background: #f1c40f;
+  opacity: 0.5;
+}
+
+.subcontainer-item > div {
+  background: #f1c40f;
+  color: #000;
+  width: auto;
+  background: #000;
+  color: #fff;
+  width: 100%;
+}
+
+.subcontainer-item > div:hover {
+  background: gray;
+}
+
+.home-menu-container-item {
+  position: absolute;
+}
+
+.home-menu-container-item > div {
+  margin-bottom: 5px;
+  width: 24rem;
+  height: 5rem;
+  padding: 5px;
+  margin-left: auto;
+}
+
+.home-menu-container-item > div:hover {
+  cursor: pointer;
+}
