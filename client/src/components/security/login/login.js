@@ -1,9 +1,9 @@
 import { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Flex } from "@react-css/flex";
 import { Card } from "@material-ui/core";
-import logo from "../../../img/logo.svg";
+import logo from "../../../img/griffin_logo.png";
+import "./login.css";
 
 const Login = ({ setAuth }) => {
   // setting default state
@@ -59,8 +59,15 @@ const Login = ({ setAuth }) => {
       <div className="w-100">
         <Card className="w-25 m-auto mt-5" elevation={12}>
           <Flex column alignItemsCenter>
-            <img src={logo} style={{ width: "10rem" }} alt="logo" />
-            <h2 className="m-2 text-center">Login</h2>
+            <img
+              draggable="false"
+              src={logo}
+              className="w-50 spin-logo"
+              alt="logo"
+            />
+            <h2 className="m-2 text-center" style={{ fontFamily: "serif" }}>
+              Welcome commander.
+            </h2>
           </Flex>
           <Flex className="p-2" justifyCenter alignItemsCenter>
             <form onSubmit={onSubmitForm}>
