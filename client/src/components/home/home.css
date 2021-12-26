@@ -1,14 +1,99 @@
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url(https://cutewallpaper.org/21/girls-frontline-backgrounds/Image-Wiki-background-Girls-Frontline-English-Wikia-.jpg);
+}
+
+@media only screen and (max-width: 1000px) {
+  body {
+    background-color: #000;
+    background-image: url("https://i.etsystatic.com/15156114/r/il/abdcb5/1992963126/il_570xN.1992963126_mcnn.jpg");
   }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-  
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.home-menu-container {
+  height: 20rem;
+  background-color: transparent;
+  position: absolute;
+  right: 20rem;
+  top: 15rem;
+}
+
+.character-container {
+  position: absolute;
+  left: 8rem;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.character-container > img {
+  height: 130vh;
+}
+
+.subcontainer-item-bottom > div {
+  background: #f1c40f;
+  color: #000;
+  width: 100%;
+  padding: 10px;
+  transition: 0.5s;
+}
+
+.subcontainer-item-bottom > div:hover {
+  background: #f1c40f;
+  opacity: 0.8;
+}
+
+.subcontainer-item > div {
+  background-size: cover;
+  background-image: url("https://files.123freevectors.com/wp-content/original/168101-black-and-white-dotted-background.jpg");
+  filter: invert(0.8);
+  color: #000;
+  width: auto;
+  width: 100%;
+  transition: 0.5s;
+  font-family: "Courier New", Courier, monospace;
+  padding-left: 10px;
+  padding-top: 20px;
+}
+
+.subcontainer-item > div:hover {
+  opacity: 0.8;
+}
+
+.home-menu-container-item {
+  position: absolute;
+}
+
+.home-menu-container-item > div {
+  margin-bottom: 5px;
+  width: 43rem;
+  height: 8rem;
+  padding: 5px;
+  margin-left: auto;
+}
+
+.home-menu-container-item > div:hover {
+  cursor: pointer;
+}
+.mobile-menu-base {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mobile-menu {
+  height: 4rem;
+  background-color: #f1c40f;
+  padding: 15px;
+}
