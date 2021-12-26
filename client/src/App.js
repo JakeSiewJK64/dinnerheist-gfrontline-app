@@ -147,13 +147,9 @@ function App() {
           <Route
             exact
             path="/"
-            render={(props) =>
-              isAuthenticated ? (
-                <Home {...props} setAuth={setAuth} username={name} />
-              ) : (
-                <Redirect to="/authentication/login" />
-              )
-            }
+            render={(props) => (
+              <Home {...props} setAuth={setAuth} username={name} />
+            )}
           />
           <Route exact path="*" render={(props) => <MissingPage />} />
         </Switch>

@@ -28,10 +28,12 @@ code {
 .character-container {
   position: absolute;
   left: 8rem;
+  overflow: hidden;
+  height: 100vh;
 }
 
 .character-container > img {
-  height: 85vh;
+  height: 130vh;
 }
 
 .subcontainer-item-bottom > div {
@@ -39,20 +41,21 @@ code {
   color: #000;
   width: 100%;
   padding: 10px;
+  transition: 0.5s;
 }
 
 .subcontainer-item-bottom > div:hover {
   background: #f1c40f;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .subcontainer-item > div {
-  background: #f1c40f;
   color: #000;
   width: auto;
   background: #000;
   color: #fff;
   width: 100%;
+  transition: 0.5s;
 }
 
 .subcontainer-item > div:hover {
