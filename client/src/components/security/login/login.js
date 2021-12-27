@@ -57,12 +57,19 @@ const Login = ({ setAuth }) => {
   return (
     <Fragment>
       <div className="w-100">
-        <Card className="w-25 m-auto mt-5" elevation={12}>
+        <Card
+          className={
+            (window.innerWidth > 1000 ? "w-25" : "w-75") + " m-auto mt-5"
+          }
+          elevation={12}
+        >
           <Flex column alignItemsCenter>
             <img
               draggable="false"
               src={logo}
-              className="w-50 spin-logo"
+              className={
+                (window.innerWidth > 1000 ? "w-25" : "w-100") + " spin-logo"
+              }
               alt="logo"
             />
             <h2 className="m-2 text-center" style={{ fontFamily: "serif" }}>

@@ -12,9 +12,22 @@ import { mdiMenu } from "@mdi/js";
 export const AppHeader = ({ username, userrole, setAuth }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+
+  const [headerRoutes] = useState([
+    {
+      title: "Guns",
+      route: "/heroes",
+    },
+    {
+      title: "Settings",
+      route: "/settings",
+    },
+  ]);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -79,9 +92,19 @@ export const AppHeader = ({ username, userrole, setAuth }) => {
                 onClose={handleClose}
                 open={open}
               >
-                <MenuItem onClick={handleClose}>Item1</MenuItem>
-                <MenuItem onClick={handleClose}>Item2</MenuItem>
-                <MenuItem onClick={handleClose}>Item3</MenuItem>
+                {headerRoutes.map((x) => {
+                  return (
+                    <MenuItem onClick={handleClose} key={x.title}>
+                      <Link
+                        style={{ textDecoration: "none" }}
+                        className="text-black"
+                        to={x.route}
+                      >
+                        {x.title}
+                      </Link>
+                    </MenuItem>
+                  );
+                })}
               </Menu>
             </div>
           )}
