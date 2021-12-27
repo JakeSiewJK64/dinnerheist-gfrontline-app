@@ -59,7 +59,7 @@ const Login = ({ setAuth }) => {
       <div className="w-100">
         <Card
           className={
-            (window.innerWidth > 1000 ? "w-50" : "w-75") + " m-auto mt-5"
+            (window.innerWidth > 1000 ? "w-25" : "w-75") + " m-auto mt-5"
           }
           elevation={12}
         >
@@ -68,7 +68,7 @@ const Login = ({ setAuth }) => {
               draggable="false"
               src={logo}
               className={
-                (window.innerWidth > 1000 ? "w-50" : "w-100") + " spin-logo"
+                (window.innerWidth > 1000 ? "w-25" : "w-100") + " spin-logo"
               }
               alt="logo"
             />
