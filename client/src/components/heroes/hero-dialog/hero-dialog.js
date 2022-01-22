@@ -149,6 +149,7 @@ const HeroDetailsDialog = () => {
                   })[0].image_url
                 }
                 draggable="false"
+                alt=""
                 className="category-label"
               />
             </div>
@@ -331,6 +332,7 @@ const HeroDetailsDialog = () => {
                   startAdornment: (
                     <InputAdornment position="start">
                       <img
+                        alt=""
                         src="https://iopwiki.com/images/thumb/b/b0/Icon_penetration.png/25px-Icon_penetration.png"
                         style={{ filter: "invert(45%)" }}
                         draggable="false"

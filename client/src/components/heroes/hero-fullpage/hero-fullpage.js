@@ -59,7 +59,7 @@ const HeroFullPage = (props) => {
   useEffect(() => {
     setHeroId(props.match.params.id);
     if (setHeroId !== null || setHeroId !== undefined) {
-      GetHeroById(props.match.params.id);
+      GetHeroById();
     }
   }, [heroId]);
 
@@ -122,6 +122,7 @@ const HeroFullPage = (props) => {
                     );
                   })[0].image_url
                 }
+                alt=""
                 draggable="false"
                 className="category-label"
               />
@@ -313,6 +314,7 @@ const HeroFullPage = (props) => {
                       <img
                         src="https://iopwiki.com/images/thumb/b/b0/Icon_penetration.png/25px-Icon_penetration.png"
                         style={{ filter: "invert(45%)" }}
+                        alt=""
                         draggable="false"
                       />
                     </InputAdornment>

@@ -108,6 +108,7 @@ const Heroes = () => {
                             );
                           })[0].image_url
                         }
+                        alt=""
                         draggable="false"
                         className="category-label-tooltip"
                       />
@@ -130,6 +131,7 @@ const Heroes = () => {
                     <img
                       draggable="false"
                       src={x.image_url}
+                      alt=""
                       className="hero-image"
                     />
                   </div>

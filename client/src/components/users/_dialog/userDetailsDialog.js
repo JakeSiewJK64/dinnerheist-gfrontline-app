@@ -178,8 +178,6 @@ export default function UserDetailsDialog({ isOpen, setOpen, userData }) {
                   type="text"
                   variant="outlined"
                   id="firstname"
-                  margin="dense"
-                  autoFocus
                   fullWidth
                   onChange={formik.handleChange}
                   value={formik.values.user_firstname}

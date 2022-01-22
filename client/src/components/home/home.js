@@ -38,7 +38,10 @@ const Home = ({ setAuth, username }) => {
         {window.innerWidth > 1000 ? (
           <div>
             <div className="character-container">
-              <img src="https://iopwiki.com/images/3/30/UMP45_costume4.png" />
+              <img
+                src="https://iopwiki.com/images/3/30/UMP45_costume4.png"
+                alt=""
+              />
             </div>
             <div className="home-menu-container">
               <Flex

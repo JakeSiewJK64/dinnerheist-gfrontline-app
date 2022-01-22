@@ -3,7 +3,6 @@ import Flex from "@react-css/flex";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../../../shared/shared-components/loadingSpinner/loadingSpinner";
 import AddHeroDialog from "../add-hero-dialog/add-hero-dialog";
-import { EditHeroDialog } from "../edit-hero-dialog/edit-hero-dialog";
 import HeroTable from "../hero-table/hero-table";
 
 const AddHero = function () {

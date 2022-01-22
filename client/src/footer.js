@@ -43,7 +43,7 @@ function Footer() {
             <Flex column>
               <Flex row className="link">
                 <Icon path={mdiDiscord} font={1} />
-                <a href="#">Discord</a>
+                <a href="/">Discord</a>
               </Flex>
             </Flex>
           </div>
@@ -56,7 +56,7 @@ function Footer() {
             </div>
             <Flex row className="link-style mx-auto m-2" alignItemsCenter>
               <Icon path={mdiDiscord} font={1} style={{ width: "2rem" }} />
-              <a href="#">Discord</a>
+              <a href="/">Discord</a>
             </Flex>
             <div className="bg-black w-75 rounded-pill p-2 mx-auto">
               <h2>Links</h2>
