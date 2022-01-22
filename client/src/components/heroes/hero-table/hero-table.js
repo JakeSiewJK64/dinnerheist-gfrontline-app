@@ -5,11 +5,11 @@ import {
   TableFooter,
   TableHead,
   TableRow,
-} from "@material-ui/core";
+} from "@mui/material";
 import React, { useState } from "react";
-import MaUTable from "@material-ui/core/Table";
+import MaUTable from "@mui/material/Table";
 import { usePagination, useTable } from "react-table";
-import TablePagination from "@material-ui/core/TablePagination/TablePagination";
+import TablePagination from "@mui/material/TablePagination/TablePagination";
 import { EditHeroDialog } from "../edit-hero-dialog/edit-hero-dialog";
 
 const HeroTable = function ({ columns, data }) {

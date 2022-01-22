@@ -5,6 +5,7 @@
 
 .active-link {
   border-left: 5px #e74c3c solid;
+  background-color: #ecf0f1;
 }
 
 .base-settings-menu-item:hover {

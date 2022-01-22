@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, Button, IconButton } from "@material-ui/core";
+import { Card, Button, IconButton } from "@mui/material";
 import UserTable from "./_table/userTable";
 import LoadingSpinner from "../../shared/shared-components/loadingSpinner/loadingSpinner";
 import Flex from "@react-css/flex";
@@ -82,7 +82,6 @@ const Users = () => {
               </IconButton>
               <Button
                 onClick={openDialogFunction}
-                variant="contained"
                 color="primary"
                 startIcon={<AddIcon />}
                 className="ml-auto"

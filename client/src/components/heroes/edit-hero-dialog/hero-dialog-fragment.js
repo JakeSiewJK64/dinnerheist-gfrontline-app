@@ -154,6 +154,7 @@ export function HeroDialogFragment({
               <div></div>
             ) : (
               <TextField
+                variant="outlined"
                 fullWidth
                 label="Image URL"
                 type="text"
@@ -163,6 +164,7 @@ export function HeroDialogFragment({
               />
             )}
             <TextField
+              variant="outlined"
               fullWidth
               label="Hero Name"
               type="text"
@@ -171,6 +173,7 @@ export function HeroDialogFragment({
               value={formik.values.hero_name}
             />
             <TextField
+              variant="outlined"
               fullWidth
               label="Full Name"
               type="text"
@@ -214,6 +217,7 @@ export function HeroDialogFragment({
             <h2>Gun Stats</h2>
             <Flex row gap={10}>
               <TextField
+                variant="outlined"
                 fullWidth
                 label="Health"
                 name="health"
@@ -222,6 +226,7 @@ export function HeroDialogFragment({
                 value={formik.values.health}
               />
               <TextField
+                variant="outlined"
                 fullWidth
                 label="Armor"
                 name="armor"
@@ -232,6 +237,7 @@ export function HeroDialogFragment({
             </Flex>
             <Flex row gap={10}>
               <TextField
+                variant="outlined"
                 fullWidth
                 label="Critical Damage"
                 name="crit_damage"
@@ -240,6 +246,7 @@ export function HeroDialogFragment({
                 value={formik.values.crit_damage}
               />
               <TextField
+                variant="outlined"
                 fullWidth
                 label="Critical Rate"
                 name="crit_rate"
@@ -250,6 +257,7 @@ export function HeroDialogFragment({
             </Flex>
             <Flex row gap={10}>
               <TextField
+                variant="outlined"
                 fullWidth
                 label="Movement Speed"
                 type="number"
@@ -258,6 +266,7 @@ export function HeroDialogFragment({
                 value={formik.values.move_speed}
               />
               <TextField
+                variant="outlined"
                 fullWidth
                 label="Damage"
                 type="number"
@@ -266,6 +275,7 @@ export function HeroDialogFragment({
                 value={formik.values.damage}
               />
               <TextField
+                variant="outlined"
                 fullWidth
                 label="Evasion"
                 type="number"
@@ -276,6 +286,7 @@ export function HeroDialogFragment({
             </Flex>
             <Flex row gap={10}>
               <TextField
+                variant="outlined"
                 fullWidth
                 label="Armor Penetration"
                 type="number"
@@ -284,6 +295,7 @@ export function HeroDialogFragment({
                 value={formik.values.armor_penetration}
               />
               <TextField
+                variant="outlined"
                 fullWidth
                 label="Accuracy"
                 type="number"
@@ -292,6 +304,7 @@ export function HeroDialogFragment({
                 value={formik.values.accuracy}
               />
               <TextField
+                variant="outlined"
                 fullWidth
                 label="Firerate"
                 type="number"
@@ -304,6 +317,7 @@ export function HeroDialogFragment({
             <h2>Gun Information</h2>
             <Flex column gap={10}>
               <TextField
+                variant="outlined"
                 fullWidth
                 label="Manufacturer"
                 type="text"
@@ -348,6 +362,7 @@ export function HeroDialogFragment({
             <h2>Game Information</h2>
             <Flex column gap={10}>
               <TextField
+                variant="outlined"
                 fullWidth
                 helperText="* FACTION DEPENDENT ON TEAM SELECTION"
                 InputProps={{
@@ -364,6 +379,7 @@ export function HeroDialogFragment({
                 }
               />
               <TextField
+                variant="outlined"
                 fullWidth
                 label="Manufactured By / Revise"
                 type="text"
@@ -372,6 +388,7 @@ export function HeroDialogFragment({
                 value={formik.values.revise}
               />
               <TextField
+                variant="outlined"
                 fullWidth
                 label="Voice Actor"
                 type="text"
@@ -380,6 +397,7 @@ export function HeroDialogFragment({
                 value={formik.values.va}
               />
               <TextField
+                variant="outlined"
                 fullWidth
                 label="Artist"
                 type="text"

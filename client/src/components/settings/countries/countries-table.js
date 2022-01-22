@@ -5,11 +5,11 @@ import {
   TableFooter,
   TableHead,
   TableRow,
-} from "@material-ui/core";
+} from "@mui/material";
 import React, { useState } from "react";
-import MaUTable from "@material-ui/core/Table";
+import MaUTable from "@mui/material/Table/Table";
 import { usePagination, useTable } from "react-table";
-import TablePagination from "@material-ui/core/TablePagination/TablePagination";
+import TablePagination from "@mui/material/TablePagination/TablePagination";
 import { CountriesDetailsDialog } from "./countries-details-dialog";
 
 export function CountriesTable({ columns, data }) {

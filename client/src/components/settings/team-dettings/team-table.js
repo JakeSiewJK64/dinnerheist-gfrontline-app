@@ -5,10 +5,10 @@ import {
   TableContainer,
   TableFooter,
   TableHead,
+  TablePagination,
   TableRow,
-} from "@material-ui/core";
-import MaUTable from "@material-ui/core/Table";
-import { TablePagination } from "@mui/material";
+} from "@mui/material";
+import MaUTable from "@mui/material/Table/Table";
 import { useState } from "react";
 import { TeamDialog } from "./team-dialog";
 

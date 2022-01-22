@@ -7,10 +7,10 @@ import {
   TableFooter,
   TableHead,
   TableRow,
-} from "@material-ui/core";
-import MaUTable from "@material-ui/core/Table";
+} from "@mui/material";
+import MaUTable from "@mui/material/Table/Table";
 import { usePagination, useTable } from "react-table";
-import TablePagination from "@material-ui/core/TablePagination/TablePagination";
+import TablePagination from "@mui/material/TablePagination/TablePagination";
 import UserDetailsDialog from "../_dialog/userDetailsDialog";
 
 export default function UserTable({ columns, data }) {

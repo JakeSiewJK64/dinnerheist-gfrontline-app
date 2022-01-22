@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import { toast } from "react-toastify";
 import { Flex } from "@react-css/flex";
-import { Card } from "@material-ui/core";
+import { Card } from "@mui/material";
 import logo from "../../../img/griffin_logo.png";
 import "./login.css";
 
