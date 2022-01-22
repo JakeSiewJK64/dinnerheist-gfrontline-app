@@ -89,6 +89,15 @@ export function HeroDialogFragment({
     });
   };
 
+  const getFactionName = () => {
+    if (teams) {
+      var i = teams.filter((x) => {
+        return x.team_id === formik.values.team_id;
+      })[0].faction_name;
+      return i ? i : "Unknown";
+    }
+  };
+
   const handleClose = () => {
     setOpenDialog(false);
   };
@@ -372,11 +381,7 @@ export function HeroDialogFragment({
                 type="text"
                 name="faction"
                 onChange={formik.handleChange}
-                value={
-                  teams.filter((x) => {
-                    return x.team_id === formik.values.team_id;
-                  })[0].faction_name
-                }
+                value={getFactionName()}
               />
               <TextField
                 variant="outlined"
