@@ -1,5 +1,6 @@
 import "./home.css";
-import React, { Fragment, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import React, { Fragment, useState } from "react";
 import Flex from "@react-css/flex";
 import Icon from "@mdi/react";
 import {
@@ -81,10 +82,12 @@ const Home = ({ setAuth, username }) => {
                       </Flex>
                     </div>
                     <div>
-                      <Flex row gap={5}>
-                        <Icon path={mdiGroup} size={2} />
-                        <h2 className="mt-2">Formation</h2>
-                      </Flex>
+                      <Link to={"/heroes"}>
+                        <Flex row gap={5}>
+                          <Icon path={mdiGroup} size={2} />
+                          <h2 className="mt-2">Formation</h2>
+                        </Flex>
+                      </Link>
                     </div>
                     <div>
                       <Flex row gap={5}>

@@ -82,6 +82,8 @@ function App() {
       <header>
         <ToastContainer />
         <AppHeader username={name} userrole={role} setAuth={setAuth} />
+      </header>
+      <section>
         <Switch>
           <Route
             exact
@@ -153,8 +155,10 @@ function App() {
           />
           <Route exact path="*" render={(props) => <MissingPage />} />
         </Switch>
-      </header>
-      <Footer />
+      </section>
+      <footer>
+        <Footer />
+      </footer>
     </Fragment>
   );
 }

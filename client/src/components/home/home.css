@@ -1,22 +1,3 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-image: url(https://cutewallpaper.org/21/girls-frontline-backgrounds/Image-Wiki-background-Girls-Frontline-English-Wikia-.jpg);
-}
-
-@media only screen and (max-width: 1000px) {
-  body {
-    background-color: #000;
-    background-image: url("https://i.etsystatic.com/15156114/r/il/abdcb5/1992963126/il_570xN.1992963126_mcnn.jpg");
-  }
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -30,15 +11,22 @@ code {
   top: 15rem;
 }
 
-.character-container {
-  position: absolute;
-  left: 8rem;
-  overflow: hidden;
-  height: 100vh;
+a {
+  text-decoration: none;
+  color: #000;
 }
 
-.character-container > img {
-  height: 130vh;
+a:hover {
+  color: #000;
+}
+
+.character-container {
+  position: absolute;
+  left: -4rem;
+  top: 13rem;
+  overflow: hidden;
+  height: 52vw;
+  width: 55rem;
 }
 
 .subcontainer-item-bottom > div {
