@@ -6,7 +6,7 @@ import RefreshIcon from "@mui/icons-material/Refresh";
 import { CountriesDetailsDialog } from "./countries-details-dialog";
 import LoadingSpinner from "../../../shared/shared-components/loadingSpinner/loadingSpinner";
 
-export function ManageCountries({}) {
+export function ManageCountries() {
   const [countries, setContries] = useState(null);
   const [newDialog, setOpenNewDialog] = useState(false);
   const [headers] = useState([

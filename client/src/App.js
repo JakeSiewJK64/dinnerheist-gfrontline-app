@@ -2,10 +2,7 @@ import "./App.css";
 import React, { Fragment, useState, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 // components
-import Customers from "./components/customers/customers";
-import Pokemon from "./components/pokemon/pokemon";
 import Home from "./components/home/home";
-import Register from "./components/security/register/register";
 import Users from "./components/users/users";
 import Login from "./components/security/login/login";
 import UserProfile from "./components/users/userProfile";
@@ -82,6 +79,8 @@ function App() {
       <header>
         <ToastContainer />
         <AppHeader username={name} userrole={role} setAuth={setAuth} />
+      </header>
+      <section>
         <Switch>
           <Route
             exact
@@ -153,8 +152,10 @@ function App() {
           />
           <Route exact path="*" render={(props) => <MissingPage />} />
         </Switch>
-      </header>
-      <Footer />
+      </section>
+      <footer>
+        <Footer />
+      </footer>
     </Fragment>
   );
 }

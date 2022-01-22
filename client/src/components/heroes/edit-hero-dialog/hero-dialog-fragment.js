@@ -13,15 +13,20 @@ import {
 } from "@mui/material";
 import Flex from "@react-css/flex";
 import { useFormik } from "formik";
-import { useState, useRef } from "react";
+import { useRef } from "react";
 
 import { rarity_select } from "../../../shared/constants";
 import empty_profile from "../../../img/empty-profile.png";
 import { toast } from "react-toastify";
 
-export function HeroDialogFragment({ openDialog, setOpenDialog, data, categories, teams, countries }) {
-
-  const [isLoading, setIsLoading] = useState(true);
+export function HeroDialogFragment({
+  openDialog,
+  setOpenDialog,
+  data,
+  categories,
+  teams,
+  countries,
+}) {
   var imageRef;
   var formik;
 
@@ -82,11 +87,10 @@ export function HeroDialogFragment({ openDialog, setOpenDialog, data, categories
         submitHero(val);
       },
     });
-  }
+  };
 
   const handleClose = () => {
     setOpenDialog(false);
-    setIsLoading(true);
   };
 
   const onImageUploadClick = () => {
@@ -132,7 +136,7 @@ export function HeroDialogFragment({ openDialog, setOpenDialog, data, categories
               <img
                 src={
                   formik.values.image_url !== null &&
-                    formik.values.image_url.length > 0
+                  formik.values.image_url.length > 0
                     ? formik.values.image_url
                     : empty_profile
                 }
