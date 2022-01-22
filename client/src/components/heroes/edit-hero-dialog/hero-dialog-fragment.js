@@ -89,13 +89,24 @@ export function HeroDialogFragment({
     });
   };
 
-  const getFactionName = () => {
-    if (teams) {
+  const getTeamName = () => {
+    if (teams && formik) {
       var i = teams.filter((x) => {
-        return x.team_id === formik.values.team_id;
-      })[0].faction_name;
-      return i ? i : "Unknown";
+        return x.team_name === data.team_name;
+      })[0];
+
+      return i !== undefined ? i.team_id : teams[0].team_id;
     }
+  };
+
+  const getFactionName = () => {
+    if (teams && data) {
+      var i = teams.filter((x) => {
+        return x.team_name === data.team_name;
+      })[0];
+      return i !== undefined ? i.faction_name : "Unknown";
+    }
+    return "Unknown";
   };
 
   const handleClose = () => {
@@ -354,7 +365,7 @@ export function HeroDialogFragment({
                 Team
               </InputLabel>
               <Select
-                value={formik.values.team_id}
+                value={getTeamName()}
                 label="Team"
                 labelId="team"
                 onChange={formik.handleChange}
