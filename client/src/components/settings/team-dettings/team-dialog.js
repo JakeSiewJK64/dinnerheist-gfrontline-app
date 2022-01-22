@@ -6,10 +6,11 @@ import {
   TextField,
   Button,
   Select,
+  InputLabel,
+  MenuItem,
 } from "@mui/material";
 import Flex from "@react-css/flex";
 import { useFormik } from "formik";
-import { InputLabel, MenuItem } from "@material-ui/core";
 import { toast } from "react-toastify";
 
 export function TeamDialog({ openDialog, setOpenDialog, data, factions }) {
